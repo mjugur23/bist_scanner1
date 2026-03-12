@@ -114,8 +114,12 @@ for s in symbols:
     # Turtle breakout
     donchian20=high.rolling(20).max()
 
-    if float(close.iloc[-1]) > float(donchian20.iloc[-2]) and float(close.iloc[-2]) <= float(donchian20.iloc[-3]):
+   # Breakout Near (%2)
 
-        send(f"🚀 Turtle Breakout: {s}")
+near_level = float(donchian20.iloc[-2]) * 0.98
+
+if float(close.iloc[-1]) >= near_level and float(close.iloc[-1]) < float(donchian20.iloc[-2]):
+
+    send(f"👀 Breakout Near: {s} | Price: {close.iloc[-1]:.2f}")
 
   
