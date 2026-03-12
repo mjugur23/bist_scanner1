@@ -46,7 +46,4 @@ for s in symbols:
 
         send(f"🚀 Turtle Breakout: {s}")
 
-    # High close
-    if float(close.iloc[-1]) >= float(high.iloc[-1])*0.999:
-
-        send(f"📈 High Close: {s}")
+  
