@@ -38,11 +38,11 @@ for s in symbols:
     # Turtle breakout
     donchian20=high.rolling(20).max()
 
-    if close.iloc[-1] > donchian20.iloc[-2]:
+    if float(close.iloc[-1]) > float(donchian20.iloc[-2]):
 
         send(f"🚀 Turtle Breakout: {s}")
 
     # High close
-    if close.iloc[-1] >= high.iloc[-1]*0.999:
+    if float(close.iloc[-1]) >= float(high.iloc[-1])*0.999:
 
         send(f"📈 High Close: {s}")
