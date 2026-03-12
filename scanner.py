@@ -114,7 +114,7 @@ for s in symbols:
     # Turtle breakout
     donchian20=high.rolling(20).max()
 
-    if float(close.iloc[-1]) > float(donchian20.iloc[-2]):
+    if float(close.iloc[-1]) > float(donchian20.iloc[-2]) and float(close.iloc[-2]) <= float(donchian20.iloc[-3]):
 
         send(f"🚀 Turtle Breakout: {s}")
 
