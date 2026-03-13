@@ -1,9 +1,11 @@
 import pandas as pd
-import yfinance as yf
 import requests
+from tvDatafeed import TvDatafeed, Interval
 
 BOT_TOKEN="8665295187:AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
 CHAT_ID="5886003690"
+
+tv = TvDatafeed()
 
 BIST_SYMBOLS = [
 "A1CAP","A1YEN","ACSEL","ADEL","ADESE","ADGYO","AEFES","AFYON",
@@ -87,8 +89,6 @@ BIST_SYMBOLS = [
 "YYAPI","YYLGD","ZEDUR","ZERGY","ZGYO","ZOREN","ZRGYO"
 ]
 
-symbols=[s+".IS" for s in BIST_SYMBOLS]
-
 def send(msg):
 
     url=f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -101,26 +101,41 @@ def send(msg):
         }
     )
 
-for s in symbols:
+for s in BIST_SYMBOLS:
 
-    df=yf.download(s,period="3mo",interval="1d")
+    try:
 
-    if df.empty:
-        continue
+        # günlük veri
+        daily = tv.get_hist(
+            symbol=s,
+            exchange="BIST",
+            interval=Interval.in_daily,
+            n_bars=30
+        )
 
-    close=df["Close"]
-    high=df["High"]
+        # saatlik veri
+        intraday = tv.get_hist(
+            symbol=s,
+            exchange="BIST",
+            interval=Interval.in_1_hour,
+            n_bars=5
+        )
 
-    # Turtle breakout
-    donchian20=high.rolling(20).max()
+        if daily is None or intraday is None:
+            continue
 
-   # Breakout Near (%2)
+        high = daily["high"]
+        donchian20 = high.rolling(20).max()
 
-near_level = float(donchian20.iloc[-2]) * 0.98
+        breakout_level = float(donchian20.iloc[-2])
 
-if float(close.iloc[-1]) >= near_level and float(close.iloc[-1]) < float(donchian20.iloc[-2]):
+        price = float(intraday["close"].iloc[-1])
 
-    send(f"👀 Breakout Near: {s} | Price: {close.iloc[-1]:.2f}")
+        if price > breakout_level:
 
+            send(f"🚀 Turtle Breakout\n{s}\nPrice: {price}")
+
+    except:
+        pass
 
   
