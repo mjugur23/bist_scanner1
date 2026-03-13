@@ -105,7 +105,7 @@ def run_scanner():
             # BREAKOUT YAKIN
             # ======================
 
-            elif breakout_distance <= 3:
+            elif breakout_distance <= 2:
 
                 breakout_near.append(symbol)
 
