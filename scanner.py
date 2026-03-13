@@ -7,8 +7,8 @@ from tvDatafeed import TvDatafeed, Interval
 # TELEGRAM
 # ======================
 
-BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
-CHAT_ID = "TELEGRAM_CHAT_ID"
+BOT_TOKEN = "8665295187:AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
+CHAT_ID = "5886003690"
 
 def send_telegram(msg):
 
