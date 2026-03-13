@@ -103,7 +103,7 @@ def send(msg):
 
 for s in symbols:
 
-    df=yf.download(s,period="3mo",interval="1h")
+    df=yf.download(s,period="3mo",interval="1d")
 
     if df.empty:
         continue
