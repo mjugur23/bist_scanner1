@@ -122,5 +122,5 @@ if float(close.iloc[-1]) >= near_level and float(close.iloc[-1]) < float(donchia
 
     send(f"👀 Breakout Near: {s} | Price: {close.iloc[-1]:.2f}")
 
-send("TEST MESAJI 🚀 Sistem çalışıyor")
+
   
