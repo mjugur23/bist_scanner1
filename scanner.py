@@ -1,14 +1,13 @@
-import pandas as pd
 import requests
-import json
+import pandas as pd
 from tvDatafeed import TvDatafeed, Interval
 
 # ======================
 # TELEGRAM
 # ======================
 
-BOT_TOKEN = "8665295187:AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
-CHAT_ID = "5886003690"
+BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
+CHAT_ID = "TELEGRAM_CHAT_ID"
 
 def send_telegram(msg):
 
@@ -22,7 +21,7 @@ def send_telegram(msg):
     requests.post(url, data=payload)
 
 # ======================
-# BIST100 LISTE
+# BIST100
 # ======================
 
 BIST100_SYMBOLS = [
@@ -108,33 +107,12 @@ BIST100_SYMBOLS = [
 ]
 
 # ======================
-# SPAM KONTROL
-# ======================
-
-SIGNAL_FILE = "sent_signals.json"
-
-def load_sent():
-
-    try:
-        with open(SIGNAL_FILE,"r") as f:
-            return json.load(f)
-    except:
-        return []
-
-def save_sent(data):
-
-    with open(SIGNAL_FILE,"w") as f:
-        json.dump(data,f)
-
-# ======================
 # SCANNER
 # ======================
 
 def run_scanner():
 
     tv = TvDatafeed()
-
-    sent = load_sent()
 
     new_al = []
     breakout_near = []
@@ -153,30 +131,30 @@ def run_scanner():
             if df is None:
                 continue
 
-            close = df["close"].iloc[-1]
+            close_today = df["close"].iloc[-1]
+            close_yesterday = df["close"].iloc[-2]
 
-            donchian_high = df["high"].iloc[-21:-1].max()
-
-            breakout_distance = (donchian_high - close) / close * 100
+            donchian_today = df["high"].iloc[-21:-1].max()
+            donchian_yesterday = df["high"].iloc[-22:-2].max()
 
             # ======================
             # YENİ AL
             # ======================
 
-            if close > donchian_high:
+            breakout_today = close_today > donchian_today
+            breakout_yesterday = close_yesterday > donchian_yesterday
 
-                key = f"{symbol}_AL"
+            if breakout_today and not breakout_yesterday:
 
-                if key not in sent:
-
-                    new_al.append(symbol)
-                    sent.append(key)
+                new_al.append(symbol)
 
             # ======================
             # BREAKOUT YAKIN
             # ======================
 
-            elif breakout_distance <= 2:
+            distance = (donchian_today - close_today) / close_today * 100
+
+            if not breakout_today and distance <= 2:
 
                 breakout_near.append(symbol)
 
@@ -185,7 +163,7 @@ def run_scanner():
             print(symbol, "hata:", e)
 
     # ======================
-    # TELEGRAM MESAJ
+    # TELEGRAM
     # ======================
 
     msg = ""
@@ -209,8 +187,6 @@ def run_scanner():
     if msg != "":
 
         send_telegram(msg)
-
-        save_sent(sent)
 
 # ======================
 # RUN
