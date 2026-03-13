@@ -3,9 +3,9 @@ import requests
 import json
 from tvDatafeed import TvDatafeed, Interval
 
-# ==============================
-# TELEGRAM AYARLARI
-# ==============================
+# ======================
+# TELEGRAM
+# ======================
 
 BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
 CHAT_ID = "TELEGRAM_CHAT_ID"
@@ -21,9 +21,9 @@ def send_telegram(msg):
 
     requests.post(url, data=payload)
 
-# ==============================
-# BIST100 LISTESI
-# ==============================
+# ======================
+# BIST100 LISTE
+# ======================
 
 BIST100_SYMBOLS = [
 "AEFES","AGHOL","AKBNK","AKSA","AKSEN","ALARK","ARCLK","ASELS","ASTOR",
@@ -36,9 +36,9 @@ BIST100_SYMBOLS = [
 "VESTL","YKBNK","ZOREN"
 ]
 
-# ==============================
-# SPAM KONTROL DOSYASI
-# ==============================
+# ======================
+# SPAM KONTROL
+# ======================
 
 SIGNAL_FILE = "sent_signals.json"
 
@@ -55,9 +55,9 @@ def save_sent(data):
     with open(SIGNAL_FILE,"w") as f:
         json.dump(data,f)
 
-# ==============================
+# ======================
 # SCANNER
-# ==============================
+# ======================
 
 def run_scanner():
 
@@ -65,7 +65,8 @@ def run_scanner():
 
     sent = load_sent()
 
-    signals = []
+    new_al = []
+    breakout_near = []
 
     for symbol in BIST100_SYMBOLS:
 
@@ -75,7 +76,7 @@ def run_scanner():
                 symbol=symbol,
                 exchange="BIST",
                 interval=Interval.in_daily,
-                n_bars=50
+                n_bars=60
             )
 
             if df is None:
@@ -85,34 +86,64 @@ def run_scanner():
 
             donchian_high = df["high"].iloc[-21:-1].max()
 
+            breakout_distance = (donchian_high - close) / close * 100
+
+            # ======================
+            # YENİ AL
+            # ======================
+
             if close > donchian_high:
 
-                key = f"{symbol}_TURTLE"
+                key = f"{symbol}_AL"
 
                 if key not in sent:
 
-                    signals.append(symbol)
-
+                    new_al.append(symbol)
                     sent.append(key)
+
+            # ======================
+            # BREAKOUT YAKIN
+            # ======================
+
+            elif breakout_distance <= 3:
+
+                breakout_near.append(symbol)
 
         except Exception as e:
 
             print(symbol, "hata:", e)
 
-    if len(signals) > 0:
+    # ======================
+    # TELEGRAM MESAJ
+    # ======================
 
-        msg = "🚨 BIST Turtle AL\n\n"
+    msg = ""
 
-        for s in signals:
+    if len(new_al) > 0:
+
+        msg += "🚨 YENİ AL\n\n"
+
+        for s in new_al:
             msg += f"{s}\n"
+
+        msg += "\n"
+
+    if len(breakout_near) > 0:
+
+        msg += "👀 BREAKOUT YAKIN\n\n"
+
+        for s in breakout_near:
+            msg += f"{s}\n"
+
+    if msg != "":
 
         send_telegram(msg)
 
         save_sent(sent)
 
-# ==============================
+# ======================
 # RUN
-# ==============================
+# ======================
 
 if __name__ == "__main__":
 
