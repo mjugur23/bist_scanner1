@@ -167,20 +167,25 @@ def run_scanner():
     # ======================
     final_msg = ""
     
+    # Sadece taze AL sinyali varsa başlık ekle
     if new_al:
-        final_msg += "🚨 **TURTLE TAZE KIRILIM (AL)**\n\n"
+        final_msg += "🚨 **TURTLE TAZE KIRILIM (AL)**\n"
+        final_msg += "*(Sadece bugün ilk kez kıranlar)*\n\n"
         final_msg += "\n".join(new_al) + "\n\n"
 
+    # Pusu listesini istersen göndermeyebilirsin ya da altına ekleyebilirsin
     if breakout_near:
-        final_msg += "🔔 **DİRENCİNE YAKIN (Pusu)**\n\n"
+        final_msg += "🔔 **DİRENCİNE YAKIN (Pusu)**\n"
         final_msg += "\n".join(breakout_near)
 
-    # Hiç sinyal yoksa kullanıcıya bilgi ver
-    if not final_msg:
-        final_msg = f"✅ **Tarama Başarıyla Tamamlandı**\n\nŞu an kriterlere uyan yeni bir hisse bulunamadı."
-
-    send_telegram(final_msg)
-    print(f"[{now_str}] İşlem tamamlandı.")
+    # ÖNEMLİ GÜNCELLEME: 
+    # Sadece yeni bir sinyal (AL veya Pusu) varsa mesaj gönder.
+    # Böylece "Sinyal bulunamadı" mesajlarıyla telefonun gereksiz meşgul olmaz.
+    if final_msg:
+        send_telegram(final_msg)
+    else:
+        # Eğer bir sinyal yoksa sadece GitHub loglarına yazar, Telegram'a mesaj atmaz.
+        print(f"[{now_str}] Tarama yapıldı, kriterlere uyan yeni hisse yok. Telegram'a mesaj gönderilmedi.")
 
 if __name__ == "__main__":
     run_scanner()
