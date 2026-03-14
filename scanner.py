@@ -43,7 +43,7 @@ BIST_SYMBOLS = [
 # TARAMA (SCANNER)
 # ======================
 
-ef run_scanner():
+def run_scanner():
     tv = TvDatafeed()
     now_str = datetime.now().strftime('%H:%M:%S')
     
