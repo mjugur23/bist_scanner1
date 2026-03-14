@@ -9,13 +9,13 @@ from datetime import datetime
 # ======================
 # BotFather'dan gelen token ve senin Chat ID'n
 BOT_TOKEN = "8665295187:AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
-CHAT_ID = "408040172" 
+CHAT_ID = "5886003690" 
 
 def send_telegram(msg):
     """Telegram üzerinden bildirim gönderen fonksiyon."""
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {
-        "chat_id": CHAT_ID,
+        "chat_id": 5886003690,
         "text": msg,
         "parse_mode": "Markdown"
     }
