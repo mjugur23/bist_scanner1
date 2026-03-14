@@ -1,28 +1,36 @@
+import os
 import requests
 import pandas as pd
 from tvDatafeed import TvDatafeed, Interval
 
 # ======================
-# TELEGRAM
+# TELEGRAM YAPILANDIRMASI
 # ======================
-
-BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
-CHAT_ID = "TELEGRAM_CHAT_ID"
+# Bilgileri GitHub Secrets üzerinden güvenli bir şekilde alıyoruz
+BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 def send_telegram(msg):
-
+    if not BOT_TOKEN or not CHAT_ID:
+        print("Hata: Telegram Token veya Chat ID bulunamadı!")
+        return
+    
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-
     payload = {
         "chat_id": CHAT_ID,
-        "text": msg
+        "text": msg,
+        "parse_mode": "Markdown" # Mesajların daha şık görünmesi için
     }
-
-    requests.post(url, data=payload)
+    try:
+        requests.post(url, data=payload)
+    except Exception as e:
+        print(f"Telegram gönderim hatası: {e}")
 
 # ======================
-# BIST100
+# BIST SEMBOLLERİ
 # ======================
+# Liste uzun olduğu için kodun başında aynı şekilde kalsın (BIST100_SYMBOLS)
+# Buraya senin paylaştığın listeyi olduğu gibi ekle veya mevcut haliyle kalsın.
 
 BIST100_SYMBOLS = [
 "A1CAP","A1YEN","ACSEL","ADEL","ADESE","ADGYO","AEFES","AFYON",
@@ -107,20 +115,20 @@ BIST100_SYMBOLS = [
 ]
 
 # ======================
-# SCANNER
+# SCANNER (TURTLE STRATEJİSİ)
 # ======================
 
 def run_scanner():
-
+    # GitHub Actions'da giriş yaparken hata almamak için username/password boş bırakılabilir
     tv = TvDatafeed()
 
     new_al = []
     breakout_near = []
 
+    print("Tarama başlatılıyor...")
+
     for symbol in BIST100_SYMBOLS:
-
         try:
-
             df = tv.get_hist(
                 symbol=symbol,
                 exchange="BIST",
@@ -128,70 +136,49 @@ def run_scanner():
                 n_bars=60
             )
 
-            if df is None:
+            if df is None or len(df) < 22:
                 continue
 
             close_today = df["close"].iloc[-1]
             close_yesterday = df["close"].iloc[-2]
 
+            # Turtle Sistem 1: Son 20 günün en yükseği (Bugün ve Dün için ayrı)
             donchian_today = df["high"].iloc[-21:-1].max()
             donchian_yesterday = df["high"].iloc[-22:-2].max()
 
-            # ======================
-            # YENİ AL
-            # ======================
-
+            # YENİ AL SİNYALİ (Breakout)
             breakout_today = close_today > donchian_today
             breakout_yesterday = close_yesterday > donchian_yesterday
 
             if breakout_today and not breakout_yesterday:
+                new_al.append(f"🟢 *{symbol}* - Fiyat: {close_today:.2f}")
 
-                new_al.append(symbol)
-
-            # ======================
-            # BREAKOUT YAKIN
-            # ======================
-
+            # BREAKOUT YAKIN (Mesafe %2'den azsa)
             distance = (donchian_today - close_today) / close_today * 100
-
             if not breakout_today and distance <= 2:
-
-                breakout_near.append(symbol)
+                breakout_near.append(f"👀 *{symbol}* - Mesafe: %{distance:.2f}")
 
         except Exception as e:
-
-            print(symbol, "hata:", e)
+            print(f"{symbol} hatası: {e}")
 
     # ======================
-    # TELEGRAM
+    # MESAJ OLUŞTURMA VE GÖNDERME
     # ======================
-
     msg = ""
 
-    if len(new_al) > 0:
+    if new_al:
+        msg += "🚀 **TURTLE SİSTEM 1: YENİ AL**\n"
+        msg += "\n".join(new_al) + "\n\n"
 
-        msg += "🚨 YENİ AL\n\n"
-
-        for s in new_al:
-            msg += f"{s}\n"
-
-        msg += "\n"
-
-    if len(breakout_near) > 0:
-
-        msg += "👀 BREAKOUT YAKIN\n\n"
-
-        for s in breakout_near:
-            msg += f"{s}\n"
+    if breakout_near:
+        msg += "🔔 **BREAKOUT YAKIN (%2)**\n"
+        msg += "\n".join(breakout_near)
 
     if msg != "":
-
         send_telegram(msg)
-
-# ======================
-# RUN
-# ======================
+        print("Sinyal Telegram'a gönderildi.")
+    else:
+        print("Yeni sinyal bulunamadı.")
 
 if __name__ == "__main__":
-
     run_scanner()
