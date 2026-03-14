@@ -124,7 +124,7 @@ def run_scanner():
     if t_output: send_telegram(t_output)
 
     s_output = ""
-    if st_new: s_output += "✨ **SUPERTREND TAZE AL**\n\n" + "\n".join(st_new) + "\n\n"
+    if st_new: s_output += "✨ **SUPERTREND AL**\n\n" + "\n".join(st_new) + "\n\n"
     if st_near: s_output += "🕯️ **SUPERTREND PUSU**\n\n" + "\n".join(st_near)
     if s_output: send_telegram(s_output)
 
