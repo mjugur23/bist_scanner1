@@ -31,39 +31,62 @@ def send_telegram(msg):
 # ======================
 # SEMBOLLER (BIST 100)
 # ======================
-for symbol in BIST100_SYMBOLS:
+BIST_SYMBOLS = [
+    "A1CAP","A1YEN","ACSEL","ADEL","ADESE","ADGYO","AEFES","AFYON",
+    "AGESA","AGHOL","AGROT","AGYO","AHGAZ","AHSGY","AKBNK","AKCNS",
+    "AKENR","AKFGY","AKFIS","AKFYE","AKGRT","AKHAN","AKMGY","AKSA",
+    "AKSEN","AKSGY","AKSUE","AKYHO","ALARK","ALBRK","ALCAR","ALCTL",
+    "ALFAS","ALGYO","ALKA","ALKIM","ALKLC","ALMAD","ALTNY","ALVES",
+]
+
+# ======================
+# TARAMA (SCANNER)
+# ======================
+
+def run_scanner():
+    tv = TvDatafeed()
+    now_str = datetime.now().strftime('%H:%M:%S')
+    
+    new_al = []
+    breakout_near = []
+
+    for symbol in BIST_SYMBOLS:
         try:
-            # 60 barlık veri çekiyoruz
             df = tv.get_hist(symbol=symbol, exchange="BIST", interval=Interval.in_daily, n_bars=60)
             
             if df is None or len(df) < 22:
                 continue
 
-            # --- HESAPLAMA MANTIGI GÜNCELLEMESİ ---
-            # Bugünün ve dünün verilerini netleştirelim
+            # Son 2 barın kapanışı ve bugünü saymadan önceki 20 günün EN YÜKSEĞİ (High)
             close_today = df["close"].iloc[-1]
             close_yesterday = df["close"].iloc[-2]
-            
-            # Donchian High: Bugünü saymadan geriye dönük tam 20 günün EN YÜKSEK (High) değeri
-            # iloc[-21:-1] -> Son bar hariç (bugün), ondan önceki 20 barı alır.
             donchian_high = df["high"].iloc[-21:-1].max()
 
             # --- KIRILIM (AL) ŞARTI ---
             if close_today > donchian_high and close_yesterday <= donchian_high:
-                # Mesaja direnç seviyesini de ekledik ki kontrol edebilesin
                 new_al.append(f"🚀 *{symbol}* - Fiyat: {close_today:.2f} (Direnç: {donchian_high:.2f} Kırıldı!)")
             
             # --- DİRENCE YAKIN (PUSU) ŞARTI ---
             else:
                 distance = ((donchian_high - close_today) / close_today) * 100
-                # Eğer fiyat direncin altındaysa ve mesafe %2'den azsa
                 if 0 < distance <= 2:
-                    # Buradaki Direnç bilgisi senin grafiğindeki çizgiyle aynı olmalı
                     breakout_near.append(f"👀 *{symbol}* - Mesafe: %{distance:.2f} (Direnç: {donchian_high:.2f})")
 
         except Exception as e:
-            print(f"{symbol} hatası: {e}"){e}")
+            print(f"{symbol} hatası: {e}")
 
+    # Mesaj Oluşturma
+    final_msg = ""
+    if new_al:
+        final_msg += "🚨 **TURTLE TAZE KIRILIM (AL)**\n\n" + "\n".join(new_al) + "\n\n"
+    if breakout_near:
+        final_msg += "🔔 **DİRENCİNE YAKIN (Pusu)**\n\n" + "\n".join(breakout_near)
+
+    if final_msg:
+        send_telegram(final_msg)
+
+if __name__ == "__main__":
+    run_scanner()
     # ======================
     # MESAJ OLUŞTURMA
     # ======================
