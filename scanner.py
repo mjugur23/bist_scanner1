@@ -7,8 +7,8 @@ from tvDatafeed import TvDatafeed, Interval
 # TELEGRAM YAPILANDIRMASI
 # ======================
 # Bilgileri GitHub Secrets üzerinden güvenli bir şekilde alıyoruz
-BOT_TOKEN = os.getenv("8665295187")
-CHAT_ID = os.getenv("AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8")
+BOT_TOKEN = "8665295187"
+CHAT_ID = "AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
 
 def send_telegram(msg):
     if not BOT_TOKEN or not CHAT_ID:
@@ -175,13 +175,12 @@ def run_scanner():
         final_msg += "🔔 **DİRENCİNE YAKIN (Pusu)**\n\n"
         final_msg += "\n".join(breakout_near)
 
-    if final_msg:
-        send_telegram(final_msg)
-    else:
-        # Eğer hiç sinyal yoksa, çalıştığını bilmen için loga yazar (Telegram'ı kirletmez)
-        print("Sinyal yok, Telegram mesajı gönderilmedi.")
-        # Test için sinyal yoksa bile mesaj almak istersen alttaki satırı aktif et:
-        # send_telegram("✅ Tarama yapıldı, yeni sinyal bulunamadı.")
+    # EĞER HİÇBİR SİNYAL YOKSA
+    if not final_msg:
+        final_msg = f"✅ Tarama Tamamlandı ({now_str})\n\nŞu an için kriterlere uyan yeni bir hisse bulunamadı."
+
+    send_telegram(final_msg)
+    print("Mesaj gönderildi.")
 
 if __name__ == "__main__":
     run_scanner()
