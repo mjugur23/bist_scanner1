@@ -38,7 +38,11 @@ def check_turtle(df, symbol, near_threshold=0.02):
     # 3. SİNYAL KARARI (Bugün ve Dün)
     last = df.iloc[-1]
     prev = df.iloc[-2]
-    
+    # SADECE TURSG İÇİN EKRANA YAZDIR
+    if symbol == "TURSG":
+        print(f"\n--- TURSG SON 3 GÜN ---")
+        print(df[['close', 'entry_high_20', 'exit_low_10', 'position']].tail(3))
+        print("-----------------------\n")
     curr_pos = last["position"]
     prev_pos = prev["position"]
     close = last["close"]
