@@ -98,7 +98,7 @@ def run_scanner():
         send_telegram(msg)
 
 # SEMBOLLERİ BURAYA EKLEYEBİLİRSİN
-BIST_SYMBOLS = ["AKSEN", "AFYON", "AKBNK", "THYAO", "EREGL", "TUPRS"] # Test için, sonra listeyi büyüt
+BIST_SYMBOLS = ["ANSGR", "KORDS", "PETKM", "TURSG", "EREGL", "TUPRS"] # Test için, sonra listeyi büyüt
 
 if __name__ == "__main__":
     run_scanner()
