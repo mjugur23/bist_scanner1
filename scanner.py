@@ -7,8 +7,8 @@ from tvDatafeed import TvDatafeed, Interval
 # TELEGRAM YAPILANDIRMASI
 # ======================
 # Bilgileri GitHub Secrets üzerinden güvenli bir şekilde alıyoruz
-BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+BOT_TOKEN = os.getenv("8665295187")
+CHAT_ID = os.getenv("AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8")
 
 def send_telegram(msg):
     if not BOT_TOKEN or not CHAT_ID:
