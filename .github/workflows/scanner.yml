@@ -23,7 +23,7 @@ jobs:
       - name: Kütüphaneleri kur
         run: |
           pip install pandas numpy requests websocket-client
-          pip install git+https://github.com/TradeVeda/tvdatafeed.git
+          pip install "https://github.com/TradeVeda/tvdatafeed/archive/refs/heads/master.zip"
 
       - name: Scanner çalıştır
         run: |
