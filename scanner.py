@@ -119,13 +119,13 @@ BIST100_SYMBOLS = [
 # ======================
 
 def run_scanner():
-    # GitHub Actions'da giriş yaparken hata almamak için username/password boş bırakılabilir
     tv = TvDatafeed()
+    
+    # Deneme mesajı: Her çalıştığında sistemin yaşadığını anlamak için
+    # send_telegram("🤖 Tarama başlatıldı...")
 
     new_al = []
     breakout_near = []
-
-    print("Tarama başlatılıyor...")
 
     for symbol in BIST100_SYMBOLS:
         try:
@@ -142,43 +142,46 @@ def run_scanner():
             close_today = df["close"].iloc[-1]
             close_yesterday = df["close"].iloc[-2]
 
-            # Turtle Sistem 1: Son 20 günün en yükseği (Bugün ve Dün için ayrı)
-            donchian_today = df["high"].iloc[-21:-1].max()
-            donchian_yesterday = df["high"].iloc[-22:-2].max()
+            # Turtle 20 Günlük Kanal
+            # Bugün kırılmış mı bakmak için dünün ve bugünün verisi hariç son 20 günü alıyoruz
+            donchian_high = df["high"].iloc[-21:-1].max()
 
-            # YENİ AL SİNYALİ (Breakout)
-            breakout_today = close_today > donchian_today
-            breakout_yesterday = close_yesterday > donchian_yesterday
+            # --- TAZE KIRILIM (AL) ŞARTI ---
+            # Bugün kapanış 20 günlük zirvenin üstünde 
+            # VE Dün kapanış bu zirvenin altındaydı (Yeni Kırılım)
+            if close_today > donchian_high and close_yesterday <= donchian_high:
+                new_al.append(f"🚀 *{symbol}* - Fiyat: {close_today:.2f}")
 
-            if breakout_today and not breakout_yesterday:
-                new_al.append(f"🟢 *{symbol}* - Fiyat: {close_today:.2f}")
-
-            # BREAKOUT YAKIN (Mesafe %2'den azsa)
-            distance = (donchian_today - close_today) / close_today * 100
-            if not breakout_today and distance <= 2:
-                breakout_near.append(f"👀 *{symbol}* - Mesafe: %{distance:.2f}")
+            # --- BREAKOUT YAKIN ŞARTI ---
+            # Kırılım henüz gerçekleşmediyse ve mesafe %2'den azsa
+            else:
+                distance = ((donchian_high - close_today) / close_today) * 100
+                if 0 < distance <= 2:
+                    breakout_near.append(f"👀 *{symbol}* - Mesafe: %{distance:.2f}")
 
         except Exception as e:
-            print(f"{symbol} hatası: {e}")
+            print(f"{symbol} hata: {e}")
 
     # ======================
-    # MESAJ OLUŞTURMA VE GÖNDERME
+    # MESAJ GÖNDERME
     # ======================
-    msg = ""
-
+    final_msg = ""
+    
     if new_al:
-        msg += "🚀 **TURTLE SİSTEM 1: YENİ AL**\n"
-        msg += "\n".join(new_al) + "\n\n"
+        final_msg += "🚨 **TURTLE TAZE KIRILIM (AL)**\n\n"
+        final_msg += "\n".join(new_al) + "\n\n"
 
     if breakout_near:
-        msg += "🔔 **BREAKOUT YAKIN (%2)**\n"
-        msg += "\n".join(breakout_near)
+        final_msg += "🔔 **DİRENCİNE YAKIN (Pusu)**\n\n"
+        final_msg += "\n".join(breakout_near)
 
-    if msg != "":
-        send_telegram(msg)
-        print("Sinyal Telegram'a gönderildi.")
+    if final_msg:
+        send_telegram(final_msg)
     else:
-        print("Yeni sinyal bulunamadı.")
+        # Eğer hiç sinyal yoksa, çalıştığını bilmen için loga yazar (Telegram'ı kirletmez)
+        print("Sinyal yok, Telegram mesajı gönderilmedi.")
+        # Test için sinyal yoksa bile mesaj almak istersen alttaki satırı aktif et:
+        # send_telegram("✅ Tarama yapıldı, yeni sinyal bulunamadı.")
 
 if __name__ == "__main__":
     run_scanner()
