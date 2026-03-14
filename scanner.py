@@ -43,23 +43,34 @@ BIST_SYMBOLS = [
 # TARAMA (SCANNER)
 # ======================
 
-# --- HATASIZ HESAPLAMA ---
-            # 1. Önce bugünü ve dünü ayıralım
+ef run_scanner():
+    tv = TvDatafeed()
+    now_str = datetime.now().strftime('%H:%M:%S')
+    
+    new_al = []
+    breakout_near = []
+
+    for symbol in BIST_SYMBOLS:
+        try:
+            df = tv.get_hist(symbol=symbol, exchange="BIST", interval=Interval.in_daily, n_bars=60)
+            
+            if df is None or len(df) < 22:
+                continue
+
+            # --- HESAPLAMA ---
             close_today = df["close"].iloc[-1]
             close_yesterday = df["close"].iloc[-2]
             
-            # 2. Direnci hesaplarken bugünkü satırı tamamen veri setinden çıkarıyoruz.
-            # df.iloc[:-1] -> 'En son satır hariç her şey' demektir.
-            # Bunun üzerinden son 20 günün en yükseğini alıyoruz.
-            past_data = df.iloc[:-1] 
-            donchian_high = past_data["high"].tail(20).max()
+            # Bugünü analiz dışı bırakıyoruz (iloc[:-1])
+            # Kalan geçmişten son 20 günün zirvesini alıyoruz
+            clean_past = df.iloc[:-1]
+            donchian_high = clean_past["high"].tail(20).max()
 
-            # --- KIRILIM KONTROLÜ ---
+            # --- KIRILIM (AL) ---
             if close_today > donchian_high and close_yesterday <= donchian_high:
                 new_al.append(f"🚀 *{symbol}* - Fiyat: {close_today:.2f} (Direnç: {donchian_high:.2f} Kırıldı!)")
-            # ... geri kalan pusu kodları
             
-            # --- DİRENCE YAKIN (PUSU) ŞARTI ---
+            # --- DİRENCE YAKIN (PUSU) ---
             else:
                 distance = ((donchian_high - close_today) / close_today) * 100
                 if 0 < distance <= 2:
@@ -77,33 +88,6 @@ BIST_SYMBOLS = [
 
     if final_msg:
         send_telegram(final_msg)
-
-if __name__ == "__main__":
-    run_scanner()
-    # ======================
-    # MESAJ OLUŞTURMA
-    # ======================
-    final_msg = ""
-    
-    # Sadece taze AL sinyali varsa başlık ekle
-    if new_al:
-        final_msg += "🚨 **TURTLE TAZE KIRILIM (AL)**\n"
-        final_msg += "*(Sadece bugün ilk kez kıranlar)*\n\n"
-        final_msg += "\n".join(new_al) + "\n\n"
-
-    # Pusu listesini istersen göndermeyebilirsin ya da altına ekleyebilirsin
-    if breakout_near:
-        final_msg += "🔔 **DİRENCİNE YAKIN (Pusu)**\n"
-        final_msg += "\n".join(breakout_near)
-
-    # ÖNEMLİ GÜNCELLEME: 
-    # Sadece yeni bir sinyal (AL veya Pusu) varsa mesaj gönder.
-    # Böylece "Sinyal bulunamadı" mesajlarıyla telefonun gereksiz meşgul olmaz.
-    if final_msg:
-        send_telegram(final_msg)
-    else:
-        # Eğer bir sinyal yoksa sadece GitHub loglarına yazar, Telegram'a mesaj atmaz.
-        print(f"[{now_str}] Tarama yapıldı, kriterlere uyan yeni hisse yok. Telegram'a mesaj gönderilmedi.")
 
 if __name__ == "__main__":
     run_scanner()
