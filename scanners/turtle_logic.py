@@ -1,26 +1,34 @@
 import pandas as pd
 
 def check_turtle(df, symbol, near_threshold=0.015):
-    df = df.copy()
-    # 20 Günlük Kanal ve 10 Günlük Çıkış
+    if df is None or len(df) < 22:
+        return None, None
+        
+    df = df.copy().reset_index(drop=True)
+    
+    # 20 Günlük Kanal (Dün ve öncesi)
     df["eh20"] = df["high"].rolling(20).max().shift(1)
-    df["el10"] = df["low"].rolling(10).min().shift(1)
     
-    pos = 0
-    for _, row in df.iterrows():
-        if pos == 1 and row['close'] < row['el10']: pos = 0
-        if pos == 0 and row['close'] > row['eh20']: pos = 1
-    
-    # Bugün mü kırdı? (Taze Sinyal)
-    is_new_buy = (pos == 1 and df['close'].iloc[-2] <= df['eh20'].iloc[-1])
+    # Bugünün verileri
     curr_close = df['close'].iloc[-1]
-    eh20 = df['eh20'].iloc[-1]
+    eh20_now = df['eh20'].iloc[-1]
     
-    if is_new_buy:
-        return "NEW", f"🚀 *{symbol}* - Fiyat: {curr_close:.2f} (Zirve: {eh20:.2f})"
-    elif pos == 0 and curr_close < eh20:
-        dist = (eh20 - curr_close) / eh20
-        if dist <= near_threshold:
-            return "NEAR", f"👀 *{symbol}* - Mesafe: %{dist*100:.2f}"
+    # TAZE KIRILIM KONTROLÜ (Garantici Yöntem)
+    # 1. Bugün kanalın üstündeyiz
+    # 2. Ama bir önceki barda (veya ondan öncekinde) kanalın içindeydik
+    is_breakout = curr_close > eh20_now
     
+    # Son 2 barın en az birinde fiyatın kanal altında olduğunu kontrol et
+    # Bu, piyasa kapalıyken oluşan "aynı veri" çakışmasını aşmamızı sağlar
+    was_below = (df['close'].iloc[-2] <= df['eh20'].iloc[-2]) or (df['close'].iloc[-3] <= df['eh20'].iloc[-3])
+
+    if is_breakout and was_below:
+        return "NEW", f"🚀 *{symbol}* - TAZE KIRILIM! Fiyat: {curr_close:.2f} (Zirve: {eh20_now:.2f})"
+    
+    # PUSU KONTROLÜ
+    elif curr_close <= eh20_now:
+        dist = (eh20_now - curr_close) / eh20_now
+        if 0 < dist <= near_threshold:
+            return "NEAR", f"🔔 *{symbol}* - Mesafe: %{dist*100:.2f} (Hedef: {eh20_now:.2f})"
+            
     return None, None
