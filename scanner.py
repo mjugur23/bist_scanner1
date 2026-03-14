@@ -50,6 +50,7 @@ def run_scanner():
     new_al = []
     breakout_near = []
 
+    # Sembol listesi burada tanımlı olmalı (BIST_SYMBOLS)
     for symbol in BIST_SYMBOLS:
         try:
             df = tv.get_hist(symbol=symbol, exchange="BIST", interval=Interval.in_daily, n_bars=60)
@@ -57,29 +58,37 @@ def run_scanner():
             if df is None or len(df) < 22:
                 continue
 
-            # --- HESAPLAMA ---
+            # --- KESİN TURTLE MANTIĞI (20 GÜN) ---
+            
+            # 1. Bugünün verisi
             close_today = df["close"].iloc[-1]
-            close_yesterday = df["close"].iloc[-2]
             
-            # Bugünü analiz dışı bırakıyoruz (iloc[:-1])
-            # Kalan geçmişten son 20 günün zirvesini alıyoruz
-            clean_past = df.iloc[:-1]
-            donchian_high = clean_past["high"].tail(20).max()
+            # 2. Dünün Direnci: Dünü saymadan önceki 20 günün en yükseği
+            # Bu, grafiğindeki o sabit yatay çizgidir.
+            # Dün fiyat bu çizginin altındaysa ve bugün üstündeyse BU TAZE KIRILIMDIR.
+            past_20_days_minus_today = df.iloc[-21:-1] 
+            donchian_high_yesterday = past_20_days_minus_today["high"].max()
 
-            # --- KIRILIM (AL) ---
-            if close_today > donchian_high and close_yesterday <= donchian_high:
-                new_al.append(f"🚀 *{symbol}* - Fiyat: {close_today:.2f} (Direnç: {donchian_high:.2f} Kırıldı!)")
+            # 3. Dünün kapanışı
+            close_yesterday = df["close"].iloc[-2]
+
+            # --- KARAR MEKANİZMASI ---
             
-            # --- DİRENCE YAKIN (PUSU) ---
-            else:
-                distance = ((donchian_high - close_today) / close_today) * 100
-                if 0 < distance <= 2:
-                    breakout_near.append(f"👀 *{symbol}* - Mesafe: %{distance:.2f} (Direnç: {donchian_high:.2f})")
+            # ŞART: Bugün direncin üstündeyiz VE Dün direncin altındaydık.
+            # Bu şart AFYON'u eler, çünkü AFYON dün de direncin üstündeydi.
+            if close_today > donchian_high_yesterday and close_yesterday <= donchian_high_yesterday:
+                new_al.append(f"🚀 *{symbol}* - TAZE KIRILIM! Fiyat: {close_today:.2f} (Direnç: {donchian_high_yesterday:.2f})")
+            
+            # PUSU ŞARTI: Henüz kırılmadıysa ve %1.5 yakınsa
+            elif close_today <= donchian_high_yesterday:
+                distance = ((donchian_high_yesterday - close_today) / close_today) * 100
+                if 0 < distance <= 1.5:
+                    breakout_near.append(f"👀 *{symbol}* - Mesafe: %{distance:.2f} (Direnç: {donchian_high_yesterday:.2f})")
 
         except Exception as e:
             print(f"{symbol} hatası: {e}")
 
-    # Mesaj Oluşturma
+    # Mesaj Gönderimi
     final_msg = ""
     if new_al:
         final_msg += "🚨 **TURTLE TAZE KIRILIM (AL)**\n\n" + "\n".join(new_al) + "\n\n"
