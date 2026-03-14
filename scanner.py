@@ -9,7 +9,7 @@ from datetime import datetime
 # ======================
 # BotFather'dan gelen token ve senin Chat ID'n
 BOT_TOKEN = "8665295187:AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
-CHAT_ID = "6348148813" 
+CHAT_ID = "5886003690" 
 
 def send_telegram(msg):
     """Telegram üzerinden bildirim gönderen fonksiyon."""
