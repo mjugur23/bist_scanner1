@@ -9,7 +9,7 @@ from datetime import datetime
 # CONFIG & SETTINGS
 # ======================
 BOT_TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
-CHAT_ID = "6348148813"
+CHAT_ID = "5886003690"
 BREAKOUT_NEAR_THRESHOLD = 0.02
 
 def send_telegram(msg):
