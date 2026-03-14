@@ -8,7 +8,7 @@ from datetime import datetime
 # YAPILANDIRMA (CONFIG)
 # ======================
 # BotFather'dan gelen token ve senin Chat ID'n
-BOT_TOKEN = "8665295187:AAEVNZQgFBmnECr4Oi18mtA8-KrvM0SFUN8"
+BOT_TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
 CHAT_ID = "5886003690" 
 
 def send_telegram(msg):
