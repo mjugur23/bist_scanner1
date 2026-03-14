@@ -34,7 +34,7 @@ def run_scanner():
 
     # Sembol listesi (Buraya 500'lük tam listeni yapıştırabilirsin)
     symbols = BIST100_SYMBOLS = [
-"TURSG","PETKM","ANSGR","KORDS","BIMAS","ENJSA","SASA","AFYON",
+"TURSG","PETKM","ANSGR","KORDS","BIMAS","AHGAZ","SASA","AFYON",
 ]
 
     for symbol in symbols:
