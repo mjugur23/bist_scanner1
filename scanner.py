@@ -14,7 +14,7 @@ from scanners.supertrend_logic import check_supertrend
 # AYARLAR (CONFIG)
 # ======================
 BOT_TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
-CHAT_ID = "6348148813"
+CHAT_ID = "5886003690"
 
 # Global sonuç listeleri
 turtle_new = []
@@ -24,8 +24,8 @@ st_near = []
 failed_symbols = [] # Veri alınamayan hisseler burada toplanacak
 
 def send_telegram(msg):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    payload = {"chat_id": CHAT_ID, "text": msg, "parse_mode": "Markdown"}
+    url = f"https://api.telegram.org/bot8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk/sendMessage"
+    payload = {"chat_id": 5886003690, "text": msg, "parse_mode": "Markdown"}
     try:
         requests.post(url, data=payload)
     except Exception as e: 
