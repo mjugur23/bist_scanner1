@@ -43,28 +43,21 @@ BIST_SYMBOLS = [
 # TARAMA (SCANNER)
 # ======================
 
-def run_scanner():
-    tv = TvDatafeed()
-    now_str = datetime.now().strftime('%H:%M:%S')
-    
-    new_al = []
-    breakout_near = []
-
-    for symbol in BIST_SYMBOLS:
-        try:
-            df = tv.get_hist(symbol=symbol, exchange="BIST", interval=Interval.in_daily, n_bars=60)
-            
-            if df is None or len(df) < 22:
-                continue
-
-            # Son 2 barın kapanışı ve bugünü saymadan önceki 20 günün EN YÜKSEĞİ (High)
+# --- HATASIZ HESAPLAMA ---
+            # 1. Önce bugünü ve dünü ayıralım
             close_today = df["close"].iloc[-1]
             close_yesterday = df["close"].iloc[-2]
-            donchian_high = df["high"].iloc[-21:-1].max()
+            
+            # 2. Direnci hesaplarken bugünkü satırı tamamen veri setinden çıkarıyoruz.
+            # df.iloc[:-1] -> 'En son satır hariç her şey' demektir.
+            # Bunun üzerinden son 20 günün en yükseğini alıyoruz.
+            past_data = df.iloc[:-1] 
+            donchian_high = past_data["high"].tail(20).max()
 
-            # --- KIRILIM (AL) ŞARTI ---
+            # --- KIRILIM KONTROLÜ ---
             if close_today > donchian_high and close_yesterday <= donchian_high:
                 new_al.append(f"🚀 *{symbol}* - Fiyat: {close_today:.2f} (Direnç: {donchian_high:.2f} Kırıldı!)")
+            # ... geri kalan pusu kodları
             
             # --- DİRENCE YAKIN (PUSU) ŞARTI ---
             else:
