@@ -16,7 +16,7 @@ CHAT_ID = "5886003690"
 
 def send_telegram(msg):
     url = f"https://api.telegram.org/bot8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk/sendMessage"
-    payload = {"5886003690": CHAT_ID, "text": msg, "parse_mode": "Markdown"}
+    payload = {"chat_id": 5886003690, "text": msg, "parse_mode": "Markdown"}
     try:
         requests.post(url, data=payload)
     except Exception as e:
