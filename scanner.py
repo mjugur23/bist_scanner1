@@ -143,16 +143,16 @@ def run_scanner():
     if turtle_new or turtle_near:
         t_output = ""
         if turtle_new:
-            t_output += "🚨 **TURTLE TAZE KIRILIM (AL)**\n\n" + "\n".join(turtle_new) + "\n\n"
+            t_output += "🚨 **TURTLE (AL)**\n\n" + "\n".join(turtle_new) + "\n\n"
         if turtle_near:
-            t_output += "🔔 **TURTLE BREAKOUT YAKIN (PUSU)**\n\n" + "\n".join(turtle_near)
+            t_output += "🔔 **TURTLE BREAKOUT YAKIN **\n\n" + "\n".join(turtle_near)
         send_telegram(t_output)
 
     # Mesaj 2: Supertrend Sonuçları
     if st_new or st_near:
         s_output = ""
         if st_new:
-            s_output += "✨ **SUPERTREND TAZE AL SİNYALİ**\n\n" + "\n".join(st_new) + "\n\n"
+            s_output += "✨ **SUPERTREND AL **\n\n" + "\n".join(st_new) + "\n\n"
         if st_near:
             s_output += "🕯️ **SUPERTREND DÖNÜŞE YAKIN**\n\n" + "\n".join(st_near)
         send_telegram(s_output)
