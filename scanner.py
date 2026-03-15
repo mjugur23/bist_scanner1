@@ -115,18 +115,18 @@ def run_scanner():
     if turtle_new or turtle_near:
         t_msg = ""
         if turtle_new:
-            t_msg += "🚨 **TURTLE TAZE KIRILIM**\n\n" + "\n".join(turtle_new) + "\n\n"
+            t_msg += "🚨 **TURTLE AL**\n\n" + "\n".join(turtle_new) + "\n\n"
         if turtle_near:
-            t_msg += "🔔 **TURTLE PUSU (YAKIN)**\n\n" + "\n".join(turtle_near)
+            t_msg += "🔔 **TURTLE (YAKIN)**\n\n" + "\n".join(turtle_near)
         send_telegram(t_msg)
 
     # Supertrend Mesajı
     if st_new or st_near:
         s_msg = ""
         if st_new:
-            s_msg += "✨ **SUPERTREND TAZE AL**\n\n" + "\n".join(st_new) + "\n\n"
+            s_msg += "✨ **SUPERTREND AL**\n\n" + "\n".join(st_new) + "\n\n"
         if st_near:
-            s_msg += "🕯️ **SUPERTREND PUSU**\n\n" + "\n".join(st_near)
+            s_msg += "🕯️ **SUPERTREND (YAKIN) **\n\n" + "\n".join(st_near)
         send_telegram(s_msg)
 
     print(f"Tarama bitti. Süre: {int(time.time() - start_time)} saniye.")
