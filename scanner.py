@@ -7,8 +7,9 @@ import concurrent.futures
 from tvDatafeed import TvDatafeed, Interval
 
 # ================= AYARLAR =================
-TELEGRAM_TOKEN = "BURAYA_KENDI_BOT_TOKENINI_YAZ"
-TELEGRAM_CHAT_ID = "BURAYA_KENDI_CHAT_ID_YAZ"
+BOT_TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
+CHAT_ID = "5886003690"
+MAX_WORKERS = 2 
 MEMORY_FILE = "hafiza.json"
 
 # Kendi taradığın hisse listesini (symbols) buraya eklemeyi unutma
