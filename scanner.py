@@ -7,13 +7,12 @@ import concurrent.futures
 from tvDatafeed import TvDatafeed, Interval
 
 # ================= AYARLAR =================
-BOT_TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
-CHAT_ID = "5886003690"
-MAX_WORKERS = 2 
+TELEGRAM_TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
+TELEGRAM_CHAT_ID = "5886003690"
 MEMORY_FILE = "hafiza.json"
 
 # Kendi taradığın hisse listesini (symbols) buraya eklemeyi unutma
-symbols = [
+symbols = [ 
 "THYAO","ASELS","ISCTR","AKBNK","YKBNK","KCHOL","TUPRS","TRALT","SASA","ASTOR",
 "GARAN","PGSUS","EREGL","BIMAS","SAHOL","EKGYO","TCELL","SISE","HALKB","PEKGY",
 "KTLEV","ATATR","TERA","TEHOL","MGROS","FROTO","NETCD","DSTKF","KRDMD","VAKBN",
@@ -45,6 +44,7 @@ symbols = [
 "BORSK","PRKME","DOFER","PNLSN","EGGUB","EGEGY","YUNSA","PKENT","ICUGS","NATEN",
 "LRSHO"
 ]
+
 # ===========================================
 
 tv = TvDatafeed()
@@ -69,28 +69,57 @@ def save_memory(alerts_dict):
         json.dump({"date": today, "alerts": alerts_dict}, f)
 
 def check_turtle(df, symbol):
-    """Sadece Turtle stratejisini hesaplar."""
-    if df is None or len(df) < 21:
+    """Kıvanç Özbilgiç - TuTCI (Turtle Trade Channels) Birebir Python Çevirisi"""
+    if df is None or len(df) < 30:
         return "NONE", ""
+
+    # TradingView'daki highest(high, 20) ve lowest(low, 10) hesaplamaları
+    df['Donchian_High'] = df['high'].rolling(window=20).max()
+    df['Donchian_Low'] = df['low'].rolling(window=10).min()
+
+    # Pine Script'teki upper[1] ve sdown[1] (Bir önceki barın değerleri)
+    df['upper_1'] = df['Donchian_High'].shift(1)
+    df['sdown_1'] = df['Donchian_Low'].shift(1)
+
+    # Sinyalleri belirle (buySignal = high >= upper[1] | buyExit = low <= sdown[1])
+    df['buySignal'] = df['high'] >= df['upper_1']
+    df['buyExit'] = df['low'] <= df['sdown_1']
+
+    state = "FLAT" # Hissenin anlık durumu (LONG=Alımda, FLAT=Nötr)
+    fresh_signal = False
     
-    # Bugün hariç son 20 günün en yükseği
-    recent_high = df['high'].iloc[-21:-1].max()
-    last_close = df['close'].iloc[-1]
-    
-    # 1. Durum: Kırılım Gerçekleşti (AL)
-    if last_close > recent_high:
-        return "NEW", f"🚀 **{symbol}** - Fiyat: {last_close:.2f} (Zirve: {recent_high:.2f})"
-    
-    # 2. Durum: Dirence Yakın (YAKIN)
-    distance = ((recent_high - last_close) / last_close) * 100
-    if 0 < distance <= 1.5:
-        return "NEAR", f"👀 **{symbol}** - Mesafe: %{distance:.2f} (Direnç: {recent_high:.2f})"
+    # Geçmişten bugüne doğru TradingView gibi bar bar simülasyon yapıyoruz
+    for i in range(20, len(df)): 
+        # Eğer AL koşulu sağlandıysa ve hisse zaten alımda değilse
+        if df['buySignal'].iloc[i] and state != "LONG":
+            state = "LONG"
+            if i == len(df) - 1: # Eğer bu LONG'a geçiş TAM OLARAK BUGÜN (son barda) olduysa!
+                fresh_signal = True
         
+        # Eğer ÇIKIŞ (Stop) koşulu sağlandıysa ve hisse alımdaydıysa
+        elif df['buyExit'].iloc[i] and state == "LONG":
+            state = "FLAT"
+
+    # Bugünün (Son barın) verileri
+    last_close = df['close'].iloc[-1]
+    last_upper = df['upper_1'].iloc[-1]
+
+    # 1. DURUM: Taptaze AL sinyali (Grafikte ilk yeşil okun yandığı an)
+    if fresh_signal:
+        return "NEW", f"🚀 **{symbol}** - Fiyat: {last_close:.2f} (Zirve: {last_upper:.2f})"
+    
+    # 2. DURUM: YAKIN sinyali (Hisse henüz AL'a geçmediyse ve dirence çok yakınsa)
+    if state == "FLAT" and pd.notna(last_upper) and last_close < last_upper:
+        distance = ((last_upper - last_close) / last_close) * 100
+        if 0 < distance <= 1.5:
+            return "NEAR", f"👀 **{symbol}** - Mesafe: %{distance:.2f} (Direnç: {last_upper:.2f})"
+            
     return "NONE", ""
 
 def scan_symbol(symbol):
     try:
-        df = tv.get_hist(symbol=symbol, exchange='BIST', interval=Interval.in_daily, n_bars=30)
+        # Geçmişi doğru okuyabilmesi için n_bars=100 olarak güncellendi!
+        df = tv.get_hist(symbol=symbol, exchange='BIST', interval=Interval.in_daily, n_bars=100)
         status, msg = check_turtle(df, symbol)
         return symbol, status, msg
     except Exception as e:
