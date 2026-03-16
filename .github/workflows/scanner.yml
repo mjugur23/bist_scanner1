@@ -1,10 +1,7 @@
 name: BIST Scanner
 
 on:
-  schedule:
-    # Hafta içi (1-5), TR saatiyle 10:00 - 18:15 arası (UTC 07:00 - 15:15)
-    - cron: "*/15 7-15 * * 1-5"
-
+  
   workflow_dispatch:
 
 jobs:
