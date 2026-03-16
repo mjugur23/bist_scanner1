@@ -53,10 +53,10 @@ def scan_single_symbol(tv, symbol):
             turtle_near.append(t_msg)
 
         # 2. SUPERTREND KONTROLÜ
-        s_status, s_msg = check_supertrend(df, clean_name)
-        if s_status == "NEW":
+        # s_status, s_msg = check_supertrend(df, clean_name)
+        # if s_status == "NEW":
             st_new.append(s_msg)
-        elif s_status == "NEAR":
+        # elif s_status == "NEAR":
             st_near.append(s_msg)
 
     except Exception as e:
@@ -123,9 +123,9 @@ def run_scanner():
     # Supertrend Mesajı
     if st_new or st_near:
         s_msg = ""
-        if st_new:
+        # if st_new:
             s_msg += "✨ **SUPERTREND AL**\n\n" + "\n".join(st_new) + "\n\n"
-        if st_near:
+        # if st_near:
             s_msg += "🕯️ **SUPERTREND (YAKIN) **\n\n" + "\n".join(st_near)
         send_telegram(s_msg)
 
