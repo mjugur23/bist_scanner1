@@ -97,8 +97,8 @@ def scan_symbol(symbol):
         return symbol, "NONE", ""
 
 def send_telegram(message):
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "Markdown"}
+    url = f"https://api.telegram.org/bot8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk/sendMessage"
+    payload = {"chat_id": 5886003690, "text": message, "parse_mode": "Markdown"}
     requests.post(url, data=payload)
 
 def main():
