@@ -6,6 +6,8 @@ from datetime import datetime
 import concurrent.futures
 from tvDatafeed import TvDatafeed, Interval
 
+MEMORY_FILE = "hafiza.json"
+
 # --- TELEGRAM AYARLARI ---
 # Token ve Chat ID'yi GitHub Secrets'tan (veya bilgisayarındaki ortam değişkenlerinden) güvenle çeker.
 TOKEN = os.environ.get("8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk")
