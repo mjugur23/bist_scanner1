@@ -6,12 +6,12 @@ from datetime import datetime
 import concurrent.futures
 from tvDatafeed import TvDatafeed, Interval
 
-MEMORY_FILE = "hafiza.json"
 
 # --- TELEGRAM AYARLARI ---
 # Token ve Chat ID'yi GitHub Secrets'tan (veya bilgisayarındaki ortam değişkenlerinden) güvenle çeker.
 TOKEN = os.environ.get("8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk")
 CHAT_ID = os.environ.get("5886003690")
+MEMORY_FILE = "hafiza.json"
 
 def send_telegram_message(message):
     # url kısmında senin token'ın açıkça yazıyordu, onu sildik ve değişkene bağladık:
