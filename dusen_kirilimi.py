@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # --- TELEGRAM AYARLARI ---
-TOKEN = os.environ.get("8625940807:AAE_bsrBsj7lojRv6Dhbq0uJjY_kaz7RwMo")
+TOKEN = os.environ.get("8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk")
 CHAT_ID = os.environ.get("5886003690")
 MEMORY_FILE = "dusen_hafiza.json"
 
