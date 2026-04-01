@@ -1,2 +1,2 @@
 # bist_scanner1
-tarama 
+turtle trade
