@@ -3,3 +3,5 @@ numpy
 requests
 websocket-client
 git+https://github.com/TradeVeda/tvdatafeed.git
+yfinance
+scipy
