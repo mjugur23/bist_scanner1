@@ -3,19 +3,37 @@ import requests
 import yfinance as yf
 import pandas as pd
 import numpy as np
+import json  # Hafıza dosyası için eklendi
 from scipy.signal import argrelextrema
 import warnings
 
 warnings.filterwarnings('ignore')
 
-# --- TELEGRAM AYARLARI ---
-TOKEN = os.environ.get("8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk")
-CHAT_ID = os.environ.get("5886003690")
+# --- TELEGRAM VE HAFIZA AYARLARI ---
+# Token ve ID'yi kodun içinde doğrudan bıraktım (senin kodunda olduğu gibi)
+TOKEN = "8625940807:AAE_bsrBsj7lojRv6Dhbq0uJjY_kaz7RwMo"
+CHAT_ID = "5886003690"
 MEMORY_FILE = "dusen_hafiza.json"
 
+def load_memory():
+    """Hafıza dosyasını okur."""
+    if os.path.exists(MEMORY_FILE):
+        try:
+            with open(MEMORY_FILE, "r") as f:
+                return json.load(f)
+        except:
+            return []
+    return []
+
+def save_memory(new_stocks, current_memory):
+    """Yeni bulunan hisseleri hafızaya ekler."""
+    updated_memory = list(set(current_memory + new_stocks))
+    with open(MEMORY_FILE, "w") as f:
+        json.dump(updated_memory, f)
+
 def send_telegram_message(message):
-    url = f"https://api.telegram.org/bot8625940807:AAE_bsrBsj7lojRv6Dhbq0uJjY_kaz7RwMo/sendMessage"
-    payload = {"chat_id": 5886003690, "text": message, "parse_mode": "Markdown"}
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    payload = {"chat_id": CHAT_ID, "text": message, "parse_mode": "Markdown"}
     try:
         requests.post(url, json=payload)
     except Exception as e:
@@ -23,10 +41,6 @@ def send_telegram_message(message):
 
 # --- YENİ VE AKILLI DÜŞEN KIRILIM MOTORU ---
 def find_downtrend_breakout(df, window=5, min_distance=10):
-    """
-    Gerçek (Macro) düşen trend kırılımlarını bulur. 
-    İhlal edilmiş sahte çizgileri kesinlikle eler.
-    """
     if df is None or len(df) < 30:
         return False, {}
         
@@ -37,7 +51,6 @@ def find_downtrend_breakout(df, window=5, min_distance=10):
     closes = df[close_col].values
     dates = df.index
     
-    # 1. Gerçek Tepeleri (Pivot Highs) Bul
     pivot_indices = []
     for i in range(window, len(highs) - window):
         if highs[i] == max(highs[i - window : i + window + 1]):
@@ -51,7 +64,6 @@ def find_downtrend_breakout(df, window=5, min_distance=10):
     current_close = closes[current_idx]
     prev_close = closes[current_idx - 1]
 
-    # 2. Tepeleri sondan başa doğru tara
     for i in range(len(pivot_indices) - 2, -1, -1):
         for j in range(len(pivot_indices) - 1, i, -1):
             p1_idx = pivot_indices[i]
@@ -69,7 +81,6 @@ def find_downtrend_breakout(df, window=5, min_distance=10):
             m = (p2_high - p1_high) / (p2_idx - p1_idx)
             b = p1_high - m * p1_idx
 
-            # 3. İHLAL KONTROLÜ (Fiyat çizgiyi önceden kesmiş mi?)
             ihlal_var = False
             for k in range(p1_idx + 1, current_idx): 
                 cizgi_degeri = m * k + b
@@ -80,12 +91,10 @@ def find_downtrend_breakout(df, window=5, min_distance=10):
             if ihlal_var:
                 continue
 
-            # 4. KIRILIM KONTROLÜ
             cizgi_dun = m * (current_idx - 1) + b
             cizgi_bugun = m * current_idx + b
 
             if prev_close <= cizgi_dun and current_close > cizgi_bugun:
-                # Kırılım bugünkü fiyatı, birinci tepenin fiyatını çoktan geçmişse bayat kırılımdır
                 if current_close > (p1_high * 1.05):
                      continue
 
@@ -102,7 +111,6 @@ def find_downtrend_breakout(df, window=5, min_distance=10):
     return False, {}
 
 def main():
-    # Tarama yapılacak BIST100 hisseleri
     TICKERS = [
        "THYAO","ASELS","ISCTR","AKBNK","YKBNK","KCHOL","TUPRS","TRALT","SASA","ASTOR", 
        "GARAN","PGSUS","EREGL","BIMAS","SAHOL","EKGYO","TCELL","SISE","HALKB","PEKGY",
@@ -136,16 +144,21 @@ def main():
        "LRSHO"
     ]
     
-    bulunanlar = []
+    hafiza = load_memory()
+    yeni_bulunanlar_hisse_kodlari = []
+    mesajlar_listesi = []
+    
     print("Düşen Kırılım Taraması Başlıyor...")
     
     for ticker in TICKERS:
+        # Eğer hisse hafızada varsa tarama yapmadan geç
+        if ticker in hafiza:
+            continue
+            
         try:
-            # yfinance'den veri çekerken 6mo yeterli (yaklaşık 125 iş günü)
             df = yf.download(f"{ticker}.IS", period="6mo", progress=False)
             if df.empty: continue
             
-            # MultiIndex sorununu çöz
             if isinstance(df.columns, pd.MultiIndex):
                 df.columns = df.columns.get_level_values(0)
             
@@ -155,18 +168,23 @@ def main():
                 mesaj += f"📌 Hisse: *{ticker}*\n"
                 mesaj += f"💵 Kırılım Fiyatı: {details['Kırılım Fiyatı']} TL\n"
                 mesaj += f"🚧 Direnç: {details['Direnç Sınırı']} TL\n"
-                bulunanlar.append(mesaj)
+                
+                mesajlar_listesi.append(mesaj)
+                yeni_bulunanlar_hisse_kodlari.append(ticker)
+                
         except Exception as e:
             continue
 
-    if bulunanlar:
-        send_telegram_message("🔔 *Günlük Düşen Kırılım Raporu* 🔔")
-        for msg in bulunanlar:
+    if mesajlar_listesi:
+        # Mesajları gönder
+        for msg in mesajlar_listesi:
             send_telegram_message(msg)
-        print(f"Tarama bitti, {len(bulunanlar)} adet hisse Telegram'a gönderildi.")
+        
+        # Hafızayı güncelle ve kaydet
+        save_memory(yeni_bulunanlar_hisse_kodlari, hafiza)
+        print(f"Tarama bitti, {len(mesajlar_listesi)} yeni hisse gönderildi ve hafızaya alındı.")
     else:
-        print("Bugün net ve kurallara uygun bir düşen kırılımı bulunamadı.")
+        print("Yeni bir kırılım bulunamadı veya bulunanlar zaten hafızada.")
 
 if __name__ == "__main__":
     main()
-
