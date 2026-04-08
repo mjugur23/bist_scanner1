@@ -123,7 +123,16 @@ def main():
         except: continue
 
     # RAPORLAMA
+    # ... (Döngü bittikten sonra, raporlama kısmının hemen üstü) ...
+    
     if kiranlar or yaklasanlar:
+        # DOSYAYI TEKRAR OKU (En güncel hali almak için)
+        current_memory = load_memory()
+        
+        # Sadece yeni olanları ekle ve eskilerle birleştir
+        # Bu satır, hafızanın üstüne yazmak yerine üzerine ekler
+        current_memory.update(memory) 
+        
         rapor = "🔔 *DÜŞEN TREND ANALİZİ* 🔔\n\n"
         if kiranlar:
             rapor += "🚀 *KIRILIM GERÇEKLEŞENLER*\n" + "\n".join(kiranlar) + "\n\n"
@@ -131,10 +140,7 @@ def main():
             rapor += "👀 *KIRILIMA ÇOK YAKINLAR (%2)*\n" + "\n".join(yaklasanlar)
         
         send_telegram_message(rapor)
-        save_memory(memory)
-        print("Rapor gönderildi ve hafıza güncellendi.")
-    else:
-        print("Yeni sinyal yok.")
-
-if __name__ == "__main__":
-    main()
+        
+        # GÜNCELLENMİŞ TÜM LİSTEYİ KAYDET
+        save_memory(current_memory) 
+        print("Rapor gönderildi ve hafıza kalıcı olarak güncellendi.")
