@@ -17,30 +17,39 @@ def load_memory():
     if os.path.exists(MEMORY_FILE):
         try:
             with open(MEMORY_FILE, "r") as f:
-                return json.load(f)
+                content = f.read().strip()
+                return json.loads(content) if content else {}
         except:
             return {}
     return {}
 
-def save_memory(memory):
-    with open(MEMORY_FILE, "w") as f:
-        json.dump(memory, f)
+def save_memory(memory_dict):
+    try:
+        with open(MEMORY_FILE, "w") as f:
+            json.dump(memory_dict, f)
+    except Exception as e:
+        print(f"Hafıza yazma hatası: {e}")
 
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": message, "parse_mode": "Markdown"}
     try:
-        requests.post(url, json=payload)
+        requests.post(url, json=payload, timeout=10)
     except Exception as e:
         print(f"Telegram hatası: {e}")
 
-# --- GELİŞMİŞ DÜŞEN KIRILIM VE YAKINLIK MOTORU ---
+# --- ANALİZ MOTORU ---
 def find_downtrend_status(df, window=5, min_distance=10):
     if df is None or len(df) < 30:
         return None, {}
         
+    # MultiIndex temizliği
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+        
     high_col = 'High' if 'High' in df.columns else 'high'
     close_col = 'Close' if 'Close' in df.columns else 'close'
+    
     highs = df[high_col].values
     closes = df[close_col].values
     
@@ -80,12 +89,12 @@ def find_downtrend_status(df, window=5, min_distance=10):
             cizgi_dun = m * (current_idx - 1) + b
             cizgi_bugun = m * current_idx + b
 
-            # DURUM 1: KIRILIM GERÇEKLEŞTİ
+            # DURUM 1: KIRILDI
             if prev_close <= cizgi_dun and current_close > cizgi_bugun:
                 if current_close <= (p1_high * 1.05):
                     return "KIRDI", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
 
-            # DURUM 2: KIRILIMA YAKIN (%2 TOLERANS)
+            # DURUM 2: YAKIN (%2)
             elif current_close <= cizgi_bugun and current_close >= (cizgi_bugun * 0.98):
                 return "YAKIN", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
 
@@ -94,45 +103,35 @@ def find_downtrend_status(df, window=5, min_distance=10):
 def main():
     TICKERS = ["THYAO","ASELS","ISCTR","AKBNK","YKBNK","KCHOL","TUPRS","TRALT","SASA","ASTOR","GARAN","PGSUS","EREGL","BIMAS","SAHOL","EKGYO","TCELL","SISE","HALKB","PEKGY","KTLEV","ATATR","TERA","TEHOL","MGROS","FROTO","NETCD","DSTKF","KRDMD","VAKBN","TTKOM","CVKMD","PETKM","GUBRF","DOFRB","TOASO","AEFES","PAHOL","BRSAN","PASEU","MEYSU","KLRHO","ENKAI","CANTE","SARKY","CWENE","IEYHO","ALARK","MANAS","TRMET","TAVHL","KONTR","ULKER","AKHAN","UCAYM","MEGMT","MARMR","EMPAE","MIATK","BTCIM","KUYAS","ADESE","ALVES","ZERGY","ARFYE","BESTE","FRMPL","FENER","CIMSA","TURSG","OYAKC","ALTNY","EUREN","SMRVA","AKSEN","HEDEF","OTKAR","ECILC","DOAS","CCOLA","TSKB","TUKAS","PSGYO","HEKTS","HDFGS","BINHO","OBAMS","SDTTR","ARCLK","EUPWR","SKBNK","BULGS","VAKFA","KATMR","PATEK","QUAGR","ODAS","GSRAY","ZGYO","ISMEN","BERA","ECOGR","TKFEN","ESEN","SURGY","BSOKE","BMSTL","GENKM","SVGYO","PAPIL","TRENJ","GENIL","DAPGM","MAVI","GZNMI","YEOTK","MAGEN","SOKM","GLRMK","GIPTA","ODINE","IZENR","BRYAT","EFOR","ALKLC","MPARK","IHLAS","GESAN","MOPAS","VAKFN","FONET","SEGMN","A1CAP","ISGSY","GUNDG","EDATA","ISKPL","HLGYO","FORMT","RALYH","DOHOL","VSNMD","PRKAB","AKFIS","KBORU","TCKRC","ENJSA","AKCNS","EMKEL","ESCOM","TSPOR","ANSGR","ALBRK","AKSA","ZOREN","ATATP","CEMAS","LYDHO","KLGYO","TRHOL","TABGD","TATEN","LILAK","CEMZY","FORTE","IZFAS","LINK","GEREL","ONCSM","ARDYZ","YYAPI","AYGAZ","RGYAS","USAK","BAHKM","ENERY","ESCAR","BURCE","DERHL","RYSAS","MEKAG","KCAER","IMASM","AGHOL","KAYSE","KZBGY","GRSEL","ARSAN","LMKDC","TTRAK","ECZYT","AHGAZ","KARSN","ALGYO","TUREX","CGCAM","POLTK","TMPOL","VESTL","MRGYO","GRTHO","BALSU","ENTRA","KLYPV","RUBNS","GWIND","INFO","AKFYE","SAFKR","TEKTU","SNGYO","ANHYT","SELVA","FZLGY","REEDR","YYLGD","ALKA","FRIGO","ERCB","OZATD","ISDMR","ENSRI","SMART","LOGO","BMSCH","GOKNR","CLEBI","DITAS","YAPRK","MERCN","KRDMA","BORLS","TRGYO","GENTS","RTALB","SEGYO","TARKM","ADGYO","SRVGY","MERKO","DURKN","SMRTG","BINBN","AYDEM","BLUME","MOGAN","EGEEN","AGROT","DMRGD","VKGYO","TNZTP","ARMGD","NTGAZ","GMTAS","BRKVY","AKGRT","TUCLK","LIDER","RUZYE","IHAAS","AVOD","DCTTR","EKOS","OTTO","TMSN","RYGYO","GLYHO","ADEL","LYDYE","TKNSA","BVSAN","BAGFS","KLKIM","KAPLM","MAKTK","MOBTL","BARMA","SELEC","AGESA","ONRYT","BORSK","PRKME","DOFER","PNLSN","EGGUB","EGEGY","YUNSA","PKENT","ICUGS","NATEN","LRSHO"]
     
-    memory = load_memory() # memory artık bir sözlük: {"THYAO": "YAKIN"}
+    memory = load_memory()
     kiranlar = []
     yaklasanlar = []
     
-    print("Düşen Kırılım ve Yakınlık Taraması Başlıyor...")
+    print("Analiz Başlıyor...")
     
     for ticker in TICKERS:
         try:
             df = yf.download(f"{ticker}.IS", period="6mo", progress=False)
-            if df.empty: continue
-            if isinstance(df.columns, pd.MultiIndex): df.columns = df.columns.get_level_values(0)
+            if df is None or df.empty: continue
             
             status, details = find_downtrend_status(df)
             
             if status == "KIRDI":
-                # Eğer daha önce hiç gönderilmediyse VEYA sadece YAKIN olarak gönderildiyse
-                if ticker not in memory or memory[ticker] == "YAKIN":
+                # Eğer daha önce KIRDI olarak kaydedilmediyse sinyal ver
+                if memory.get(ticker) != "KIRDI":
                     kiranlar.append(f"✅ *{ticker}* (Fiyat: {details['Fiyat']} / Direnç: {details['Direnç']})")
                     memory[ticker] = "KIRDI"
             
             elif status == "YAKIN":
-                # Eğer daha önce bu hisse hakkında hiçbir şey gönderilmediyse
+                # Eğer hafızada hiç yoksa (ne Yakın ne Kırdı) sinyal ver
                 if ticker not in memory:
                     yaklasanlar.append(f"⏳ *{ticker}* (Fiyat: {details['Fiyat']} / Direnç: {details['Direnç']})")
                     memory[ticker] = "YAKIN"
-                    
-        except: continue
+        except:
+            continue
 
-    # RAPORLAMA
-    # ... (Döngü bittikten sonra, raporlama kısmının hemen üstü) ...
-    
+    # --- RAPORLAMA VE KAYDETME ---
     if kiranlar or yaklasanlar:
-        # DOSYAYI TEKRAR OKU (En güncel hali almak için)
-        current_memory = load_memory()
-        
-        # Sadece yeni olanları ekle ve eskilerle birleştir
-        # Bu satır, hafızanın üstüne yazmak yerine üzerine ekler
-        current_memory.update(memory) 
-        
         rapor = "🔔 *DÜŞEN TREND ANALİZİ* 🔔\n\n"
         if kiranlar:
             rapor += "🚀 *KIRILIM GERÇEKLEŞENLER*\n" + "\n".join(kiranlar) + "\n\n"
@@ -140,7 +139,10 @@ def main():
             rapor += "👀 *KIRILIMA ÇOK YAKINLAR (%2)*\n" + "\n".join(yaklasanlar)
         
         send_telegram_message(rapor)
-        
-        # GÜNCELLENMİŞ TÜM LİSTEYİ KAYDET
-        save_memory(current_memory) 
-        print("Rapor gönderildi ve hafıza kalıcı olarak güncellendi.")
+        save_memory(memory)
+        print("Sinyaller gönderildi ve hafıza güncellendi.")
+    else:
+        print("Yeni sinyal bulunamadı.")
+
+if __name__ == "__main__":
+    main()
