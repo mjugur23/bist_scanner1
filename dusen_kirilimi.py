@@ -130,8 +130,15 @@ def main():
         except:
             continue
 
-    # --- RAPORLAMA VE KAYDETME ---
+    # --- RAPORLAMA VE AKILLI HAFIZA BİRLEŞTİRME ---
     if kiranlar or yaklasanlar:
+        # 1. Mevcut hafızayı dosyadan tekrar oku (Çakışmaları önlemek için)
+        current_memory = load_memory()
+        
+        # 2. Yeni bulduklarımızı mevcut hafızanın içine ekle (Üstüne yazma, ekle!)
+        # Bu satır sayesinde eski hisseler silinmez, yeniler yanına eklenir.
+        current_memory.update(memory) 
+        
         rapor = "🔔 *DÜŞEN TREND ANALİZİ* 🔔\n\n"
         if kiranlar:
             rapor += "🚀 *KIRILIM GERÇEKLEŞENLER*\n" + "\n".join(kiranlar) + "\n\n"
@@ -139,10 +146,9 @@ def main():
             rapor += "👀 *KIRILIMA ÇOK YAKINLAR (%2)*\n" + "\n".join(yaklasanlar)
         
         send_telegram_message(rapor)
-        save_memory(memory)
-        print("Sinyaller gönderildi ve hafıza güncellendi.")
+        
+        # 3. Birleşmiş (Eski + Yeni) hafızayı dosyaya yaz
+        save_memory(current_memory)
+        print("Sinyaller gönderildi ve hafıza başarıyla birleştirildi.")
     else:
-        print("Yeni sinyal bulunamadı.")
-
-if __name__ == "__main__":
-    main()
+        print("Yeni sinyal bulunamadı veya hepsi zaten hafızada.")
