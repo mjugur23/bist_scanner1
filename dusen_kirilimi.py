@@ -38,9 +38,9 @@ def send_telegram_message(message):
     except Exception as e:
         print(f"Telegram hatasi: {e}")
 
-# --- ANALIZ MOTORU (GENİŞ AÇILI - 2 YILLIK) ---
-def find_downtrend_status(df, window=10, min_distance=20):
-    if df is None or len(df) < 50:
+# --- ANALİZ MOTORU (1 YILLIK DENGELİ AYAR) ---
+def find_downtrend_status(df, window=7, min_distance=15): # Değerleri 1 yıla göre optimize ettik
+    if df is None or len(df) < 40:
         return None, {}
         
     if isinstance(df.columns, pd.MultiIndex):
@@ -55,7 +55,7 @@ def find_downtrend_status(df, window=10, min_distance=20):
     pivot_indices = []
     for i in range(window, len(highs) - window):
         if highs[i] == max(highs[i - window : i + window + 1]):
-            if not pivot_indices or i - pivot_indices[-1] >= 5:
+            if not pivot_indices or i - pivot_indices[-1] >= 4:
                 pivot_indices.append(i)
 
     if len(pivot_indices) < 2:
@@ -89,7 +89,7 @@ def find_downtrend_status(df, window=10, min_distance=20):
             cizgi_bugun = m * current_idx + b
 
             if prev_close <= cizgi_dun and current_close > cizgi_bugun:
-                if current_close <= (p1_high * 1.10):
+                if current_close <= (p1_high * 1.08): # Marjı %8'e çektik
                     return "KIRDI", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
             elif current_close <= cizgi_bugun and current_close >= (cizgi_bugun * 0.98):
                 return "YAKIN", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
@@ -97,7 +97,6 @@ def find_downtrend_status(df, window=10, min_distance=20):
     return None, {}
 
 def main():
-    # --- SEMBOL LISTESI (FONKSIYONUN ICINE ALINDI) ---
     TICKERS = [
         "THYAO","ASELS","ISCTR","AKBNK","YKBNK","KCHOL","TUPRS","TRALT","SASA","ASTOR", 
         "GARAN","PGSUS","EREGL","BIMAS","SAHOL","EKGYO","TCELL","SISE","HALKB","PEKGY",
@@ -134,11 +133,12 @@ def main():
     kiranlar = []
     yaklasanlar = []
     
-    print("Geniş Açı Analiz Başlıyor (2 Yıllık Veri)...")
+    print("1 Yıllık Dengeli Analiz Başlıyor...")
     
     for ticker in TICKERS:
         try:
-            df = yf.download(f"{ticker}.IS", period="2y", progress=False)
+            # Burayı 1y (1 yıl) olarak güncelledik
+            df = yf.download(f"{ticker}.IS", period="1y", progress=False)
             if df is None or df.empty: continue
             
             status, details = find_downtrend_status(df)
@@ -155,7 +155,7 @@ def main():
             continue
 
     if kiranlar or yaklasanlar:
-        rapor = "🔔 *GENİŞ AÇI DÜŞEN TREND ANALİZİ* 🔔\n\n"
+        rapor = "🔔 *DÜŞEN TREND ANALİZİ (1 Yıllık)* 🔔\n\n"
         if kiranlar:
             rapor += "🚀 *KIRILIM GERÇEKLEŞENLER*\n" + "\n".join(kiranlar) + "\n\n"
         if yaklasanlar:
