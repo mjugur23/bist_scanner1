@@ -28,7 +28,7 @@ def save_memory(memory_dict):
         with open(MEMORY_FILE, "w") as f:
             json.dump(memory_dict, f)
     except Exception as e:
-        print(f"Hafıza yazma hatası: {e}")
+        print(f"Hafiza yazma hatasi: {e}")
 
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
@@ -36,14 +36,13 @@ def send_telegram_message(message):
     try:
         requests.post(url, json=payload, timeout=10)
     except Exception as e:
-        print(f"Telegram hatası: {e}")
+        print(f"Telegram hatasi: {e}")
 
-# --- ANALİZ MOTORU ---
+# --- ANALIZ MOTORU ---
 def find_downtrend_status(df, window=5, min_distance=10):
     if df is None or len(df) < 30:
         return None, {}
         
-    # MultiIndex temizliği
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
         
@@ -89,15 +88,11 @@ def find_downtrend_status(df, window=5, min_distance=10):
             cizgi_dun = m * (current_idx - 1) + b
             cizgi_bugun = m * current_idx + b
 
-            # DURUM 1: KIRILDI
             if prev_close <= cizgi_dun and current_close > cizgi_bugun:
                 if current_close <= (p1_high * 1.05):
                     return "KIRDI", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
-
-            # DURUM 2: YAKIN (%2)
             elif current_close <= cizgi_bugun and current_close >= (cizgi_bugun * 0.98):
                 return "YAKIN", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
-
     return None, {}
 
 def main():
@@ -107,7 +102,7 @@ def main():
     kiranlar = []
     yaklasanlar = []
     
-    print("Analiz Başlıyor...")
+    print("Analiz Basliyor...")
     
     for ticker in TICKERS:
         try:
@@ -117,28 +112,17 @@ def main():
             status, details = find_downtrend_status(df)
             
             if status == "KIRDI":
-                # Eğer daha önce KIRDI olarak kaydedilmediyse sinyal ver
                 if memory.get(ticker) != "KIRDI":
-                    kiranlar.append(f"✅ *{ticker}* (Fiyat: {details['Fiyat']} / Direnç: {details['Direnç']})")
+                    kiranlar.append(f"✅ *{ticker}* (Fiyat: {details['Fiyat']} / Direnc: {details['Direnc']})")
                     memory[ticker] = "KIRDI"
-            
             elif status == "YAKIN":
-                # Eğer hafızada hiç yoksa (ne Yakın ne Kırdı) sinyal ver
                 if ticker not in memory:
-                    yaklasanlar.append(f"⏳ *{ticker}* (Fiyat: {details['Fiyat']} / Direnç: {details['Direnç']})")
+                    yaklasanlar.append(f"⏳ *{ticker}* (Fiyat: {details['Fiyat']} / Direnc: {details['Direnc']})")
                     memory[ticker] = "YAKIN"
         except:
             continue
 
-    # --- RAPORLAMA VE AKILLI HAFIZA BİRLEŞTİRME ---
     if kiranlar or yaklasanlar:
-        # 1. Mevcut hafızayı dosyadan tekrar oku (Çakışmaları önlemek için)
-        current_memory = load_memory()
-        
-        # 2. Yeni bulduklarımızı mevcut hafızanın içine ekle (Üstüne yazma, ekle!)
-        # Bu satır sayesinde eski hisseler silinmez, yeniler yanına eklenir.
-        current_memory.update(memory) 
-        
         rapor = "🔔 *DÜŞEN TREND ANALİZİ* 🔔\n\n"
         if kiranlar:
             rapor += "🚀 *KIRILIM GERÇEKLEŞENLER*\n" + "\n".join(kiranlar) + "\n\n"
@@ -146,9 +130,10 @@ def main():
             rapor += "👀 *KIRILIMA ÇOK YAKINLAR (%2)*\n" + "\n".join(yaklasanlar)
         
         send_telegram_message(rapor)
-        
-        # 3. Birleşmiş (Eski + Yeni) hafızayı dosyaya yaz
-        save_memory(current_memory)
-        print("Sinyaller gönderildi ve hafıza başarıyla birleştirildi.")
+        save_memory(memory)
+        print("Rapor gonderildi.")
     else:
-        print("Yeni sinyal bulunamadı veya hepsi zaten hafızada.")
+        print("Yeni sinyal yok.")
+
+if __name__ == "__main__":
+    main()
