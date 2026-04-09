@@ -38,7 +38,7 @@ def send_telegram_message(message):
     except Exception as e:
         print(f"Telegram hatasi: {e}")
 
-# --- ANALIZ MOTORU (GENİŞ AÇILI) ---
+# --- ANALIZ MOTORU (GENİŞ AÇILI - 2 YILLIK) ---
 def find_downtrend_status(df, window=10, min_distance=20):
     if df is None or len(df) < 50:
         return None, {}
@@ -88,19 +88,16 @@ def find_downtrend_status(df, window=10, min_distance=20):
             cizgi_dun = m * (current_idx - 1) + b
             cizgi_bugun = m * current_idx + b
 
-            # KIRILDI KONTROL
             if prev_close <= cizgi_dun and current_close > cizgi_bugun:
                 if current_close <= (p1_high * 1.10):
                     return "KIRDI", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
-            
-            # YAKIN KONTROL (%2)
             elif current_close <= cizgi_bugun and current_close >= (cizgi_bugun * 0.98):
                 return "YAKIN", {"Fiyat": round(current_close, 2), "Direnç": round(cizgi_bugun, 2)}
                 
     return None, {}
 
 def main():
-    # --- SEMBOL LISTESI ---
+    # --- SEMBOL LISTESI (FONKSIYONUN ICINE ALINDI) ---
     TICKERS = [
         "THYAO","ASELS","ISCTR","AKBNK","YKBNK","KCHOL","TUPRS","TRALT","SASA","ASTOR", 
         "GARAN","PGSUS","EREGL","BIMAS","SAHOL","EKGYO","TCELL","SISE","HALKB","PEKGY",
