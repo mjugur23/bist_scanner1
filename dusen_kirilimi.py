@@ -155,7 +155,7 @@ def main():
             continue
 
     if kiranlar or yaklasanlar:
-        rapor = "🔔 *DÜŞEN TREND ANALİZİ (1 Yıllık)* 🔔\n\n"
+        rapor = "🔔 *DÜŞEN TREND ANALİZİ * 🔔\n\n"
         if kiranlar:
             rapor += "🚀 *KIRILIM GERÇEKLEŞENLER*\n" + "\n".join(kiranlar) + "\n\n"
         if yaklasanlar:
