@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # --- TELEGRAM VE HAFIZA AYARLARI ---
-TOKEN = "8625940807:AAE_bsrBsj7lojRv6Dhbq0uJjY_kaz7RwMo"
+TOKEN = "8729990107:AAHyGbQjcbORktI_h046N0QVUg_d17iTy6g"
 CHAT_ID = "5886003690"
 MEMORY_FILE = "dusen_hafiza.json"
 
