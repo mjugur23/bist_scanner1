@@ -9,7 +9,7 @@ from tvDatafeed import TvDatafeed, Interval
 
 # --- TELEGRAM AYARLARI ---
 # Token ve Chat ID'yi GitHub Secrets'tan (veya bilgisayarındaki ortam değişkenlerinden) güvenle çeker.
-TOKEN = os.environ.get("8729990107:AAHyGbQjcbORktI_h046N0QVUg_d17iTy6g")
+TOKEN = os.environ.get("8662718342:AAFJmYEssc2HYnhChCVZeM0r3lZuozk9qdg")
 CHAT_ID = os.environ.get("5886003690")
 MEMORY_FILE = "hafiza.json"
 
