@@ -140,7 +140,7 @@ def scan_symbol(symbol):
         return symbol, "FLAT", ""
 
 def send_telegram(message):
-    url = f"https://api.telegram.org/bot8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk/sendMessage"
+    url = f"https://api.telegram.org/bot8662718342:AAFJmYEssc2HYnhChCVZeM0r3lZuozk9qdg/sendMessage"
     payload = {"chat_id": 5886003690, "text": message, "parse_mode": "Markdown"}
     requests.post(url, data=payload)
 
