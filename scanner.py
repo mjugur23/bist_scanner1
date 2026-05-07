@@ -6,8 +6,8 @@ from datetime import datetime
 import concurrent.futures
 from tvDatafeed import TvDatafeed, Interval
 
-# --- TELEGRAM AYARLARI ---
-TOKEN = "8636859505:AAFGvfaT8JDMoDmwbUZNoJ0OA-NdToeB3Uk"
+# --- TELEGRAM AYARLARI (Çalışan bot ile değiştirildi) ---
+TOKEN = "8729990107:AAHyGbQjcbORktI_h046N0QVUg_d17iTy6g"
 CHAT_ID = "5886003690"
 MEMORY_FILE = "hafiza.json"
 
@@ -60,7 +60,6 @@ symbols = [
 tv = TvDatafeed()
 
 def load_memory():
-    """Hafızayı kalıcı olarak yükler."""
     if os.path.exists(MEMORY_FILE):
         try:
             with open(MEMORY_FILE, "r") as f:
@@ -71,12 +70,10 @@ def load_memory():
     return {}
 
 def save_memory(memory_dict):
-    """Hafızayı kalıcı olarak dosyaya kaydeder."""
     with open(MEMORY_FILE, "w") as f:
         json.dump(memory_dict, f)
 
 def check_turtle(df, symbol):
-    """Kıvanç Özbilgiç - TuTCI (Turtle Trade Channels) Birebir Python Çevirisi"""
     if df is None or len(df) < 30:
         return "FLAT", ""
 
@@ -103,15 +100,12 @@ def check_turtle(df, symbol):
     last_close = df['close'].iloc[-1]
     last_upper = df['upper_1'].iloc[-1]
 
-    # 1. DURUM: Taptaze AL sinyali
     if fresh_signal:
         return "NEW", f"🚀 *{symbol}* - Fiyat: {last_close:.2f} (Zirve: {last_upper:.2f})"
 
-    # Zaten alımda olanlar (sessiz kal)
     if state == "LONG":
         return "LONG", ""
 
-    # 2. DURUM: YAKIN sinyali
     if state == "FLAT" and pd.notna(last_upper) and last_close < last_upper:
         distance = ((last_upper - last_close) / last_close) * 100
         if 0 < distance <= 1.5:
