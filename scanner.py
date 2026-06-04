@@ -7,7 +7,7 @@ import concurrent.futures
 from tvDatafeed import TvDatafeed, Interval
 
 # --- TELEGRAM AYARLARI (Çalışan bot ile değiştirildi) ---
-TOKEN = "8729990107:AAHyGbQjcbORktI_h046N0QVUg_d17iTy6g"
+TOKEN = "8729990107:AAG3Sf_nx8p4xmxCdqeiwW_C8hnDrTNVkWI"
 CHAT_ID = "5886003690"
 MEMORY_FILE = "hafiza.json"
 
