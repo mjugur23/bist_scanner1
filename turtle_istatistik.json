@@ -1,0 +1,1886 @@
+{
+    "THYAO": {
+        "Başarı Oranı %": 71.4,
+        "Beklenen Getiri %": 0.71,
+        "Ort. MFE %": 7.49,
+        "Toplam İşlem": 7
+    },
+    "ASELS": {
+        "Başarı Oranı %": 87.5,
+        "Beklenen Getiri %": 16.52,
+        "Ort. MFE %": 30.15,
+        "Toplam İşlem": 8
+    },
+    "AKBNK": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 1.33,
+        "Ort. MFE %": 10.07,
+        "Toplam İşlem": 9
+    },
+    "SASA": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -1.42,
+        "Ort. MFE %": 13.09,
+        "Toplam İşlem": 6
+    },
+    "ISCTR": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.37,
+        "Ort. MFE %": 9.61,
+        "Toplam İşlem": 8
+    },
+    "ASTOR": {
+        "Başarı Oranı %": 55.6,
+        "Beklenen Getiri %": 9.13,
+        "Ort. MFE %": 22.32,
+        "Toplam İşlem": 9
+    },
+    "TUPRS": {
+        "Başarı Oranı %": 30.0,
+        "Beklenen Getiri %": -0.82,
+        "Ort. MFE %": 8.31,
+        "Toplam İşlem": 10
+    },
+    "YKBNK": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": -1.4,
+        "Ort. MFE %": 5.95,
+        "Toplam İşlem": 12
+    },
+    "TRALT": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": 0.55,
+        "Ort. MFE %": 7.06,
+        "Toplam İşlem": 10
+    },
+    "EREGL": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 0.02,
+        "Ort. MFE %": 12.36,
+        "Toplam İşlem": 8
+    },
+    "KCHOL": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -1.32,
+        "Ort. MFE %": 8.91,
+        "Toplam İşlem": 7
+    },
+    "GARAN": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -1.61,
+        "Ort. MFE %": 8.94,
+        "Toplam İşlem": 9
+    },
+    "BIMAS": {
+        "Başarı Oranı %": 8.3,
+        "Beklenen Getiri %": -4.08,
+        "Ort. MFE %": 4.81,
+        "Toplam İşlem": 12
+    },
+    "KTLEV": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": 0.88,
+        "Ort. MFE %": 20.46,
+        "Toplam İşlem": 4
+    },
+    "SAHOL": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -1.17,
+        "Ort. MFE %": 7.65,
+        "Toplam İşlem": 9
+    },
+    "PGSUS": {
+        "Başarı Oranı %": 11.1,
+        "Beklenen Getiri %": -4.93,
+        "Ort. MFE %": 3.64,
+        "Toplam İşlem": 9
+    },
+    "SISE": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -2.57,
+        "Ort. MFE %": 9.96,
+        "Toplam İşlem": 8
+    },
+    "PEKGY": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 72.39,
+        "Ort. MFE %": 34.36,
+        "Toplam İşlem": 7
+    },
+    "TERA": {
+        "Başarı Oranı %": 83.3,
+        "Beklenen Getiri %": 164.81,
+        "Ort. MFE %": 94.32,
+        "Toplam İşlem": 6
+    },
+    "EKGYO": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 3.42,
+        "Ort. MFE %": 11.21,
+        "Toplam İşlem": 9
+    },
+    "TCELL": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": -2.68,
+        "Ort. MFE %": 4.98,
+        "Toplam İşlem": 9
+    },
+    "HALKB": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 0.09,
+        "Ort. MFE %": 15.62,
+        "Toplam İşlem": 10
+    },
+    "TEHOL": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 158.37,
+        "Ort. MFE %": 94.89,
+        "Toplam İşlem": 6
+    },
+    "KRDMD": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -0.32,
+        "Ort. MFE %": 11.07,
+        "Toplam İşlem": 8
+    },
+    "FROTO": {
+        "Başarı Oranı %": 83.3,
+        "Beklenen Getiri %": 2.17,
+        "Ort. MFE %": 13.54,
+        "Toplam İşlem": 6
+    },
+    "DSTKF": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 67.2,
+        "Ort. MFE %": 100.75,
+        "Toplam İşlem": 6
+    },
+    "PETKM": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -2.39,
+        "Ort. MFE %": 10.95,
+        "Toplam İşlem": 7
+    },
+    "MGROS": {
+        "Başarı Oranı %": 30.0,
+        "Beklenen Getiri %": -1.05,
+        "Ort. MFE %": 8.37,
+        "Toplam İşlem": 10
+    },
+    "PASEU": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 15.07,
+        "Ort. MFE %": 14.61,
+        "Toplam İşlem": 9
+    },
+    "VAKBN": {
+        "Başarı Oranı %": 30.0,
+        "Beklenen Getiri %": 1.6,
+        "Ort. MFE %": 8.93,
+        "Toplam İşlem": 10
+    },
+    "NETCD": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": -0.21,
+        "Ort. MFE %": 32.3,
+        "Toplam İşlem": 2
+    },
+    "DOFRB": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 11.97,
+        "Ort. MFE %": 37.58,
+        "Toplam İşlem": 3
+    },
+    "ATATR": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -9.61,
+        "Ort. MFE %": 14.06,
+        "Toplam İşlem": 2
+    },
+    "TTKOM": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": -2.22,
+        "Ort. MFE %": 9.66,
+        "Toplam İşlem": 7
+    },
+    "EUPWR": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 9.18,
+        "Ort. MFE %": 17.68,
+        "Toplam İşlem": 8
+    },
+    "BRSAN": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 3.5,
+        "Ort. MFE %": 22.97,
+        "Toplam İşlem": 8
+    },
+    "MIATK": {
+        "Başarı Oranı %": 12.5,
+        "Beklenen Getiri %": -2.97,
+        "Ort. MFE %": 13.14,
+        "Toplam İşlem": 8
+    },
+    "GUBRF": {
+        "Başarı Oranı %": 44.4,
+        "Beklenen Getiri %": 5.33,
+        "Ort. MFE %": 13.7,
+        "Toplam İşlem": 9
+    },
+    "GLRMK": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 2.4,
+        "Ort. MFE %": 21.38,
+        "Toplam İşlem": 5
+    },
+    "HEKTS": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 4.2,
+        "Ort. MFE %": 22.15,
+        "Toplam İşlem": 6
+    },
+    "CWENE": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 5.51,
+        "Ort. MFE %": 18.98,
+        "Toplam İşlem": 6
+    },
+    "KONTR": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -3.9,
+        "Ort. MFE %": 14.49,
+        "Toplam İşlem": 6
+    },
+    "TOASO": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": 0.56,
+        "Ort. MFE %": 10.72,
+        "Toplam İşlem": 8
+    },
+    "CVKMD": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 7.79,
+        "Ort. MFE %": 16.91,
+        "Toplam İşlem": 10
+    },
+    "ENKAI": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.43,
+        "Ort. MFE %": 11.33,
+        "Toplam İşlem": 8
+    },
+    "EFOR": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 32.8,
+        "Ort. MFE %": 21.25,
+        "Toplam İşlem": 6
+    },
+    "AEFES": {
+        "Başarı Oranı %": 80.0,
+        "Beklenen Getiri %": 5.1,
+        "Ort. MFE %": 17.26,
+        "Toplam İşlem": 5
+    },
+    "IEYHO": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 10.43,
+        "Ort. MFE %": 27.25,
+        "Toplam İşlem": 6
+    },
+    "CANTE": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -1.06,
+        "Ort. MFE %": 12.64,
+        "Toplam İşlem": 7
+    },
+    "TAVHL": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 4.12,
+        "Ort. MFE %": 11.9,
+        "Toplam İşlem": 6
+    },
+    "KLRHO": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 46.86,
+        "Ort. MFE %": 65.01,
+        "Toplam İşlem": 7
+    },
+    "MANAS": {
+        "Başarı Oranı %": 71.4,
+        "Beklenen Getiri %": 39.28,
+        "Ort. MFE %": 42.4,
+        "Toplam İşlem": 7
+    },
+    "PSGYO": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 10.83,
+        "Ort. MFE %": 28.51,
+        "Toplam İşlem": 6
+    },
+    "PAHOL": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -9.95,
+        "Ort. MFE %": 8.19,
+        "Toplam İşlem": 2
+    },
+    "MEYSU": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 12.33,
+        "Ort. MFE %": 44.43,
+        "Toplam İşlem": 1
+    },
+    "EMPAE": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 97.5,
+        "Ort. MFE %": 255.74,
+        "Toplam İşlem": 1
+    },
+    "DAPGM": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": 4.0,
+        "Ort. MFE %": 18.32,
+        "Toplam İşlem": 9
+    },
+    "IZENR": {
+        "Başarı Oranı %": 12.5,
+        "Beklenen Getiri %": -4.9,
+        "Ort. MFE %": 14.41,
+        "Toplam İşlem": 8
+    },
+    "YEOTK": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 7.3,
+        "Ort. MFE %": 13.76,
+        "Toplam İşlem": 8
+    },
+    "ULKER": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": -4.88,
+        "Ort. MFE %": 6.34,
+        "Toplam İşlem": 7
+    },
+    "TRMET": {
+        "Başarı Oranı %": 27.3,
+        "Beklenen Getiri %": -3.2,
+        "Ort. MFE %": 9.38,
+        "Toplam İşlem": 11
+    },
+    "ISKPL": {
+        "Başarı Oranı %": 55.6,
+        "Beklenen Getiri %": 12.7,
+        "Ort. MFE %": 21.51,
+        "Toplam İşlem": 9
+    },
+    "SVGYO": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 36.27,
+        "Ort. MFE %": 76.33,
+        "Toplam İşlem": 1
+    },
+    "GESAN": {
+        "Başarı Oranı %": 44.4,
+        "Beklenen Getiri %": 1.18,
+        "Ort. MFE %": 13.7,
+        "Toplam İşlem": 9
+    },
+    "KUYAS": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 17.27,
+        "Ort. MFE %": 28.4,
+        "Toplam İşlem": 7
+    },
+    "TKFEN": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 20.69,
+        "Ort. MFE %": 35.6,
+        "Toplam İşlem": 6
+    },
+    "MEGMT": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 4.0,
+        "Ort. MFE %": 15.13,
+        "Toplam İşlem": 8
+    },
+    "ALARK": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": -0.92,
+        "Ort. MFE %": 8.65,
+        "Toplam İşlem": 8
+    },
+    "FENER": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": -5.63,
+        "Ort. MFE %": 11.05,
+        "Toplam İşlem": 9
+    },
+    "GENKM": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -0.52,
+        "Ort. MFE %": 43.25,
+        "Toplam İşlem": 1
+    },
+    "BESTE": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -3.48,
+        "Ort. MFE %": 26.78,
+        "Toplam İşlem": 2
+    },
+    "UCAYM": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 13.62,
+        "Ort. MFE %": 34.76,
+        "Toplam İşlem": 1
+    },
+    "SARKY": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 16.1,
+        "Ort. MFE %": 12.78,
+        "Toplam İşlem": 7
+    },
+    "ODAS": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 0.19,
+        "Ort. MFE %": 17.79,
+        "Toplam İşlem": 6
+    },
+    "TURSG": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 4.9,
+        "Ort. MFE %": 18.37,
+        "Toplam İşlem": 6
+    },
+    "SMRVA": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 73.98,
+        "Ort. MFE %": 43.25,
+        "Toplam İşlem": 6
+    },
+    "ODINE": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 15.95,
+        "Ort. MFE %": 28.23,
+        "Toplam İşlem": 4
+    },
+    "MARMR": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 13.67,
+        "Ort. MFE %": 48.01,
+        "Toplam İşlem": 2
+    },
+    "RALYH": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 21.79,
+        "Ort. MFE %": 41.13,
+        "Toplam İşlem": 8
+    },
+    "AKSEN": {
+        "Başarı Oranı %": 80.0,
+        "Beklenen Getiri %": 16.92,
+        "Ort. MFE %": 20.96,
+        "Toplam İşlem": 5
+    },
+    "KRDMB": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 4.99,
+        "Ort. MFE %": 10.21,
+        "Toplam İşlem": 5
+    },
+    "MAGEN": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 28.58,
+        "Ort. MFE %": 23.21,
+        "Toplam İşlem": 6
+    },
+    "BTCIM": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 2.39,
+        "Ort. MFE %": 13.32,
+        "Toplam İşlem": 5
+    },
+    "ALVES": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 5.48,
+        "Ort. MFE %": 27.42,
+        "Toplam İşlem": 5
+    },
+    "ECILC": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.96,
+        "Ort. MFE %": 21.84,
+        "Toplam İşlem": 8
+    },
+    "ALTNY": {
+        "Başarı Oranı %": 12.5,
+        "Beklenen Getiri %": -7.65,
+        "Ort. MFE %": 8.88,
+        "Toplam İşlem": 8
+    },
+    "PATEK": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 0.06,
+        "Ort. MFE %": 25.31,
+        "Toplam İşlem": 7
+    },
+    "SKBNK": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 3.82,
+        "Ort. MFE %": 20.37,
+        "Toplam İşlem": 10
+    },
+    "ZERGY": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -1.45,
+        "Ort. MFE %": 30.42,
+        "Toplam İşlem": 3
+    },
+    "OYAKC": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 4.97,
+        "Ort. MFE %": 9.77,
+        "Toplam İşlem": 7
+    },
+    "TATEN": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.74,
+        "Ort. MFE %": 26.41,
+        "Toplam İşlem": 8
+    },
+    "GENIL": {
+        "Başarı Oranı %": 71.4,
+        "Beklenen Getiri %": 2.0,
+        "Ort. MFE %": 20.24,
+        "Toplam İşlem": 7
+    },
+    "HEDEF": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 58.59,
+        "Ort. MFE %": 44.36,
+        "Toplam İşlem": 8
+    },
+    "EUREN": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -1.67,
+        "Ort. MFE %": 14.53,
+        "Toplam İşlem": 8
+    },
+    "QUAGR": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 30.62,
+        "Ort. MFE %": 25.8,
+        "Toplam İşlem": 5
+    },
+    "ALKLC": {
+        "Başarı Oranı %": 85.7,
+        "Beklenen Getiri %": 45.97,
+        "Ort. MFE %": 34.69,
+        "Toplam İşlem": 7
+    },
+    "BINHO": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": -2.43,
+        "Ort. MFE %": 15.17,
+        "Toplam İşlem": 7
+    },
+    "CIMSA": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 0.34,
+        "Ort. MFE %": 7.72,
+        "Toplam İşlem": 8
+    },
+    "CCOLA": {
+        "Başarı Oranı %": 83.3,
+        "Beklenen Getiri %": 3.23,
+        "Ort. MFE %": 14.95,
+        "Toplam İşlem": 6
+    },
+    "GUNDG": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 91.65,
+        "Ort. MFE %": 132.54,
+        "Toplam İşlem": 4
+    },
+    "ADESE": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 159.44,
+        "Ort. MFE %": 16.0,
+        "Toplam İşlem": 5
+    },
+    "OBAMS": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 6.1,
+        "Ort. MFE %": 20.93,
+        "Toplam İşlem": 6
+    },
+    "TCKRC": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 16.21,
+        "Ort. MFE %": 33.84,
+        "Toplam İşlem": 7
+    },
+    "OZATD": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 11.36,
+        "Ort. MFE %": 16.66,
+        "Toplam İşlem": 5
+    },
+    "OTKAR": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": -2.84,
+        "Ort. MFE %": 6.74,
+        "Toplam İşlem": 10
+    },
+    "ZGYO": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 11.36,
+        "Ort. MFE %": 40.72,
+        "Toplam İşlem": 1
+    },
+    "BALSU": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -4.56,
+        "Ort. MFE %": 16.13,
+        "Toplam İşlem": 7
+    },
+    "ARFYE": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -3.92,
+        "Ort. MFE %": 14.29,
+        "Toplam İşlem": 1
+    },
+    "DMRGD": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": 13.71,
+        "Ort. MFE %": 12.19,
+        "Toplam İşlem": 6
+    },
+    "SDTTR": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -6.16,
+        "Ort. MFE %": 16.46,
+        "Toplam İşlem": 8
+    },
+    "ECOGR": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 9.76,
+        "Ort. MFE %": 25.49,
+        "Toplam İşlem": 3
+    },
+    "FRMPL": {
+        "Başarı Oranı %": 100.0,
+        "Beklenen Getiri %": 3.56,
+        "Ort. MFE %": 41.71,
+        "Toplam İşlem": 1
+    },
+    "ENERY": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 16.35,
+        "Ort. MFE %": 16.65,
+        "Toplam İşlem": 7
+    },
+    "TUKAS": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -3.93,
+        "Ort. MFE %": 9.78,
+        "Toplam İşlem": 8
+    },
+    "DOAS": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": -2.77,
+        "Ort. MFE %": 9.23,
+        "Toplam İşlem": 7
+    },
+    "SURGY": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 5.53,
+        "Ort. MFE %": 25.97,
+        "Toplam İşlem": 8
+    },
+    "ENSRI": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 86.59,
+        "Ort. MFE %": 43.75,
+        "Toplam İşlem": 5
+    },
+    "AKHAN": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -8.44,
+        "Ort. MFE %": 7.72,
+        "Toplam İşlem": 1
+    },
+    "FZLGY": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 10.55,
+        "Ort. MFE %": 28.75,
+        "Toplam İşlem": 8
+    },
+    "SOKM": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": 7.25,
+        "Ort. MFE %": 7.47,
+        "Toplam İşlem": 5
+    },
+    "HDFGS": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": -2.02,
+        "Ort. MFE %": 22.35,
+        "Toplam İşlem": 10
+    },
+    "KATMR": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 9.68,
+        "Ort. MFE %": 23.06,
+        "Toplam İşlem": 5
+    },
+    "RGYAS": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 2.92,
+        "Ort. MFE %": 11.29,
+        "Toplam İşlem": 7
+    },
+    "ALGYO": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": -0.55,
+        "Ort. MFE %": 11.52,
+        "Toplam İşlem": 10
+    },
+    "ISMEN": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 1.24,
+        "Ort. MFE %": 12.25,
+        "Toplam İşlem": 7
+    },
+    "ESEN": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 48.58,
+        "Ort. MFE %": 16.66,
+        "Toplam İşlem": 6
+    },
+    "SMRTG": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 2.11,
+        "Ort. MFE %": 6.19,
+        "Toplam İşlem": 7
+    },
+    "TSKB": {
+        "Başarı Oranı %": 10.0,
+        "Beklenen Getiri %": -4.38,
+        "Ort. MFE %": 3.44,
+        "Toplam İşlem": 10
+    },
+    "EMKEL": {
+        "Başarı Oranı %": 44.4,
+        "Beklenen Getiri %": 12.12,
+        "Ort. MFE %": 27.16,
+        "Toplam İşlem": 9
+    },
+    "ARCLK": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 0.01,
+        "Ort. MFE %": 9.9,
+        "Toplam İşlem": 6
+    },
+    "BULGS": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.55,
+        "Ort. MFE %": 16.85,
+        "Toplam İşlem": 6
+    },
+    "KRDMA": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 3.35,
+        "Ort. MFE %": 21.78,
+        "Toplam İşlem": 7
+    },
+    "AKFIS": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -4.77,
+        "Ort. MFE %": 11.91,
+        "Toplam İşlem": 3
+    },
+    "IZFAS": {
+        "Başarı Oranı %": 44.4,
+        "Beklenen Getiri %": 7.98,
+        "Ort. MFE %": 13.65,
+        "Toplam İşlem": 9
+    },
+    "GSRAY": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": -5.5,
+        "Ort. MFE %": 5.26,
+        "Toplam İşlem": 5
+    },
+    "ENJSA": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 4.69,
+        "Ort. MFE %": 14.93,
+        "Toplam İşlem": 6
+    },
+    "FONET": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": -1.36,
+        "Ort. MFE %": 18.87,
+        "Toplam İşlem": 7
+    },
+    "MOGAN": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 8.29,
+        "Ort. MFE %": 8.43,
+        "Toplam İşlem": 6
+    },
+    "CEMZY": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 12.8,
+        "Ort. MFE %": 28.25,
+        "Toplam İşlem": 8
+    },
+    "MPARK": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 2.8,
+        "Ort. MFE %": 8.91,
+        "Toplam İşlem": 6
+    },
+    "MAVI": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": -2.55,
+        "Ort. MFE %": 6.46,
+        "Toplam İşlem": 9
+    },
+    "ESCOM": {
+        "Başarı Oranı %": 12.5,
+        "Beklenen Getiri %": 0.34,
+        "Ort. MFE %": 11.24,
+        "Toplam İşlem": 8
+    },
+    "REEDR": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -7.11,
+        "Ort. MFE %": 14.35,
+        "Toplam İşlem": 4
+    },
+    "GIPTA": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 8.56,
+        "Ort. MFE %": 23.19,
+        "Toplam İşlem": 8
+    },
+    "VAKFA": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -4.23,
+        "Ort. MFE %": 7.66,
+        "Toplam İşlem": 2
+    },
+    "PAPIL": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 11.89,
+        "Ort. MFE %": 15.32,
+        "Toplam İşlem": 7
+    },
+    "BERA": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -2.62,
+        "Ort. MFE %": 10.59,
+        "Toplam İşlem": 6
+    },
+    "GEREL": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 16.16,
+        "Ort. MFE %": 20.4,
+        "Toplam İşlem": 8
+    },
+    "GZNMI": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 26.46,
+        "Ort. MFE %": 38.91,
+        "Toplam İşlem": 7
+    },
+    "AKSA": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 3.28,
+        "Ort. MFE %": 13.02,
+        "Toplam İşlem": 6
+    },
+    "LINK": {
+        "Başarı Oranı %": 10.0,
+        "Beklenen Getiri %": -7.16,
+        "Ort. MFE %": 10.29,
+        "Toplam İşlem": 10
+    },
+    "ATATP": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 8.22,
+        "Ort. MFE %": 22.0,
+        "Toplam İşlem": 8
+    },
+    "VSNMD": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": 12.36,
+        "Ort. MFE %": 17.75,
+        "Toplam İşlem": 6
+    },
+    "BMSTL": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 11.33,
+        "Ort. MFE %": 32.71,
+        "Toplam İşlem": 8
+    },
+    "BSOKE": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 22.55,
+        "Ort. MFE %": 38.13,
+        "Toplam İşlem": 6
+    },
+    "TRENJ": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 6.68,
+        "Ort. MFE %": 22.73,
+        "Toplam İşlem": 6
+    },
+    "DOHOL": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 0.54,
+        "Ort. MFE %": 10.02,
+        "Toplam İşlem": 8
+    },
+    "KBORU": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 4.7,
+        "Ort. MFE %": 13.47,
+        "Toplam İşlem": 6
+    },
+    "GWIND": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -1.95,
+        "Ort. MFE %": 10.81,
+        "Toplam İşlem": 7
+    },
+    "CGCAM": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 1.93,
+        "Ort. MFE %": 10.87,
+        "Toplam İşlem": 6
+    },
+    "HLGYO": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 1.68,
+        "Ort. MFE %": 15.36,
+        "Toplam İşlem": 9
+    },
+    "GRTHO": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 14.28,
+        "Ort. MFE %": 29.68,
+        "Toplam İşlem": 7
+    },
+    "MOPAS": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 1.78,
+        "Ort. MFE %": 27.0,
+        "Toplam İşlem": 6
+    },
+    "ISGSY": {
+        "Başarı Oranı %": 44.4,
+        "Beklenen Getiri %": 12.45,
+        "Ort. MFE %": 26.46,
+        "Toplam İşlem": 9
+    },
+    "SELEC": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 4.9,
+        "Ort. MFE %": 16.93,
+        "Toplam İşlem": 8
+    },
+    "ARDYZ": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -0.27,
+        "Ort. MFE %": 17.58,
+        "Toplam İşlem": 8
+    },
+    "TSPOR": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": -3.27,
+        "Ort. MFE %": 15.38,
+        "Toplam İşlem": 5
+    },
+    "TRHOL": {
+        "Başarı Oranı %": 85.7,
+        "Beklenen Getiri %": 67.11,
+        "Ort. MFE %": 122.49,
+        "Toplam İşlem": 7
+    },
+    "SEGMN": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": 12.17,
+        "Ort. MFE %": 11.62,
+        "Toplam İşlem": 8
+    },
+    "TUREX": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 17.79,
+        "Ort. MFE %": 27.29,
+        "Toplam İşlem": 7
+    },
+    "ESCAR": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": 7.22,
+        "Ort. MFE %": 18.29,
+        "Toplam İşlem": 8
+    },
+    "KCAER": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": -1.68,
+        "Ort. MFE %": 12.17,
+        "Toplam İşlem": 7
+    },
+    "BURCE": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 11.22,
+        "Ort. MFE %": 37.58,
+        "Toplam İşlem": 7
+    },
+    "BRYAT": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": -2.1,
+        "Ort. MFE %": 13.32,
+        "Toplam İşlem": 7
+    },
+    "BORLS": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 15.85,
+        "Ort. MFE %": 40.05,
+        "Toplam İşlem": 8
+    },
+    "LILAK": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": -0.16,
+        "Ort. MFE %": 11.33,
+        "Toplam İşlem": 8
+    },
+    "A1CAP": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 5.4,
+        "Ort. MFE %": 22.28,
+        "Toplam İşlem": 8
+    },
+    "KARSN": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 0.84,
+        "Ort. MFE %": 17.05,
+        "Toplam İşlem": 5
+    },
+    "TABGD": {
+        "Başarı Oranı %": 30.0,
+        "Beklenen Getiri %": -1.59,
+        "Ort. MFE %": 6.52,
+        "Toplam İşlem": 10
+    },
+    "FORTE": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -2.37,
+        "Ort. MFE %": 15.44,
+        "Toplam İşlem": 8
+    },
+    "ALFAS": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 9.97,
+        "Ort. MFE %": 29.07,
+        "Toplam İşlem": 4
+    },
+    "IHLAS": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 46.21,
+        "Ort. MFE %": 34.43,
+        "Toplam İşlem": 5
+    },
+    "RYSAS": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 5.5,
+        "Ort. MFE %": 17.46,
+        "Toplam İşlem": 9
+    },
+    "AYGAZ": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.34,
+        "Ort. MFE %": 12.21,
+        "Toplam İşlem": 8
+    },
+    "AKFYE": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -4.72,
+        "Ort. MFE %": 9.59,
+        "Toplam İşlem": 9
+    },
+    "ADEL": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -3.7,
+        "Ort. MFE %": 19.6,
+        "Toplam İşlem": 8
+    },
+    "HOROZ": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": -1.26,
+        "Ort. MFE %": 14.62,
+        "Toplam İşlem": 9
+    },
+    "AKCNS": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 1.87,
+        "Ort. MFE %": 12.98,
+        "Toplam İşlem": 7
+    },
+    "ALBRK": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 0.73,
+        "Ort. MFE %": 12.03,
+        "Toplam İşlem": 7
+    },
+    "MRGYO": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 9.79,
+        "Ort. MFE %": 17.55,
+        "Toplam İşlem": 7
+    },
+    "ZOREN": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -3.88,
+        "Ort. MFE %": 13.1,
+        "Toplam İşlem": 5
+    },
+    "BIGEN": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -5.01,
+        "Ort. MFE %": 9.21,
+        "Toplam İşlem": 5
+    },
+    "TMPOL": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 22.53,
+        "Ort. MFE %": 21.6,
+        "Toplam İşlem": 8
+    },
+    "LMKDC": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": -0.75,
+        "Ort. MFE %": 9.84,
+        "Toplam İşlem": 8
+    },
+    "EDATA": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 28.59,
+        "Ort. MFE %": 19.63,
+        "Toplam İşlem": 6
+    },
+    "KZBGY": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 9.28,
+        "Ort. MFE %": 18.0,
+        "Toplam İşlem": 7
+    },
+    "MEKAG": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 1.02,
+        "Ort. MFE %": 21.81,
+        "Toplam İşlem": 7
+    },
+    "VAKFN": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": -0.17,
+        "Ort. MFE %": 18.09,
+        "Toplam İşlem": 7
+    },
+    "AHGAZ": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 19.22,
+        "Ort. MFE %": 23.65,
+        "Toplam İşlem": 4
+    },
+    "HRKET": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 4.87,
+        "Ort. MFE %": 16.94,
+        "Toplam İşlem": 8
+    },
+    "ONCSM": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 13.2,
+        "Ort. MFE %": 27.51,
+        "Toplam İşlem": 8
+    },
+    "USAK": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 11.83,
+        "Ort. MFE %": 20.23,
+        "Toplam İşlem": 6
+    },
+    "ANSGR": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 1.17,
+        "Ort. MFE %": 7.39,
+        "Toplam İşlem": 9
+    },
+    "FORMT": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": -4.67,
+        "Ort. MFE %": 12.9,
+        "Toplam İşlem": 7
+    },
+    "RTALB": {
+        "Başarı Oranı %": 66.7,
+        "Beklenen Getiri %": 6.38,
+        "Ort. MFE %": 26.7,
+        "Toplam İşlem": 6
+    },
+    "EKOS": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -3.58,
+        "Ort. MFE %": 13.53,
+        "Toplam İşlem": 7
+    },
+    "ECZYT": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 2.63,
+        "Ort. MFE %": 19.11,
+        "Toplam İşlem": 8
+    },
+    "GOKNR": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -5.58,
+        "Ort. MFE %": 7.64,
+        "Toplam İşlem": 8
+    },
+    "ISDMR": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 7.36,
+        "Ort. MFE %": 9.89,
+        "Toplam İşlem": 6
+    },
+    "VESTL": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": -4.42,
+        "Ort. MFE %": 10.79,
+        "Toplam İşlem": 6
+    },
+    "AGROT": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -5.44,
+        "Ort. MFE %": 8.17,
+        "Toplam İşlem": 4
+    },
+    "HATSN": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 4.3,
+        "Ort. MFE %": 22.74,
+        "Toplam İşlem": 5
+    },
+    "MARTI": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -0.6,
+        "Ort. MFE %": 13.72,
+        "Toplam İşlem": 7
+    },
+    "GRSEL": {
+        "Başarı Oranı %": 62.5,
+        "Beklenen Getiri %": 3.26,
+        "Ort. MFE %": 16.2,
+        "Toplam İşlem": 8
+    },
+    "AKENR": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": -2.16,
+        "Ort. MFE %": 16.91,
+        "Toplam İşlem": 7
+    },
+    "KLYPV": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": -5.13,
+        "Ort. MFE %": 6.4,
+        "Toplam İşlem": 5
+    },
+    "INFO": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 4.43,
+        "Ort. MFE %": 23.1,
+        "Toplam İşlem": 7
+    },
+    "KAREL": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -1.75,
+        "Ort. MFE %": 9.47,
+        "Toplam İşlem": 8
+    },
+    "RUBNS": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 2.83,
+        "Ort. MFE %": 16.64,
+        "Toplam İşlem": 7
+    },
+    "AGHOL": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.97,
+        "Ort. MFE %": 14.06,
+        "Toplam İşlem": 6
+    },
+    "ENTRA": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -1.82,
+        "Ort. MFE %": 10.67,
+        "Toplam İşlem": 8
+    },
+    "ANELE": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 68.97,
+        "Ort. MFE %": 20.27,
+        "Toplam İşlem": 7
+    },
+    "LIDER": {
+        "Başarı Oranı %": 55.6,
+        "Beklenen Getiri %": 9.85,
+        "Ort. MFE %": 29.16,
+        "Toplam İşlem": 9
+    },
+    "CEMAS": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 31.09,
+        "Ort. MFE %": 18.67,
+        "Toplam İşlem": 5
+    },
+    "MERKO": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -2.84,
+        "Ort. MFE %": 15.1,
+        "Toplam İşlem": 8
+    },
+    "KGYO": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 22.99,
+        "Ort. MFE %": 33.46,
+        "Toplam İşlem": 7
+    },
+    "SELVA": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": 0.07,
+        "Ort. MFE %": 25.82,
+        "Toplam İşlem": 8
+    },
+    "ARMGD": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 28.01,
+        "Ort. MFE %": 30.5,
+        "Toplam İşlem": 5
+    },
+    "BRLSM": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 0.49,
+        "Ort. MFE %": 19.97,
+        "Toplam İşlem": 5
+    },
+    "TEKTU": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 57.98,
+        "Ort. MFE %": 18.63,
+        "Toplam İşlem": 6
+    },
+    "PRKAB": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 1.26,
+        "Ort. MFE %": 20.75,
+        "Toplam İşlem": 7
+    },
+    "SAFKR": {
+        "Başarı Oranı %": 20.0,
+        "Beklenen Getiri %": -3.24,
+        "Ort. MFE %": 13.21,
+        "Toplam İşlem": 10
+    },
+    "IHAAS": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": 7.74,
+        "Ort. MFE %": 31.16,
+        "Toplam İşlem": 8
+    },
+    "TRILC": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -0.62,
+        "Ort. MFE %": 15.99,
+        "Toplam İşlem": 8
+    },
+    "KOCMT": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": -6.11,
+        "Ort. MFE %": 8.55,
+        "Toplam İşlem": 7
+    },
+    "MERCN": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 20.74,
+        "Ort. MFE %": 31.93,
+        "Toplam İşlem": 7
+    },
+    "DITAS": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 38.4,
+        "Ort. MFE %": 45.86,
+        "Toplam İşlem": 6
+    },
+    "DCTTR": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -2.34,
+        "Ort. MFE %": 16.15,
+        "Toplam İşlem": 8
+    },
+    "BIOEN": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -5.15,
+        "Ort. MFE %": 8.14,
+        "Toplam İşlem": 9
+    },
+    "TRGYO": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 4.99,
+        "Ort. MFE %": 13.96,
+        "Toplam İşlem": 7
+    },
+    "GMTAS": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 27.4,
+        "Ort. MFE %": 31.72,
+        "Toplam İşlem": 7
+    },
+    "DERHL": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 43.18,
+        "Ort. MFE %": 22.96,
+        "Toplam İşlem": 7
+    },
+    "LYDHO": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 2.68,
+        "Ort. MFE %": 21.58,
+        "Toplam İşlem": 7
+    },
+    "NIBAS": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 18.13,
+        "Ort. MFE %": 31.48,
+        "Toplam İşlem": 7
+    },
+    "SMART": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.25,
+        "Ort. MFE %": 11.61,
+        "Toplam İşlem": 6
+    },
+    "IMASM": {
+        "Başarı Oranı %": 75.0,
+        "Beklenen Getiri %": 5.76,
+        "Ort. MFE %": 35.23,
+        "Toplam İşlem": 4
+    },
+    "BARMA": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 8.91,
+        "Ort. MFE %": 25.73,
+        "Toplam İşlem": 7
+    },
+    "DUNYH": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": 1.21,
+        "Ort. MFE %": 27.44,
+        "Toplam İşlem": 7
+    },
+    "KTSKR": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": 0.72,
+        "Ort. MFE %": 13.91,
+        "Toplam İşlem": 8
+    },
+    "AYCES": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 9.21,
+        "Ort. MFE %": 11.67,
+        "Toplam İşlem": 7
+    },
+    "KLGYO": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -0.01,
+        "Ort. MFE %": 12.79,
+        "Toplam İşlem": 8
+    },
+    "FRIGO": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -0.72,
+        "Ort. MFE %": 12.9,
+        "Toplam İşlem": 8
+    },
+    "BVSAN": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 2.05,
+        "Ort. MFE %": 22.42,
+        "Toplam İşlem": 7
+    },
+    "BAHKM": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 4.55,
+        "Ort. MFE %": 17.21,
+        "Toplam İşlem": 7
+    },
+    "ICUGS": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 10.68,
+        "Ort. MFE %": 28.1,
+        "Toplam İşlem": 6
+    },
+    "LOGO": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -3.44,
+        "Ort. MFE %": 11.37,
+        "Toplam İşlem": 8
+    },
+    "KORDS": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 2.72,
+        "Ort. MFE %": 10.82,
+        "Toplam İşlem": 5
+    },
+    "SNGYO": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -1.34,
+        "Ort. MFE %": 10.64,
+        "Toplam İşlem": 8
+    },
+    "YIGIT": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": -4.69,
+        "Ort. MFE %": 12.67,
+        "Toplam İşlem": 5
+    },
+    "PENGD": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -0.07,
+        "Ort. MFE %": 14.0,
+        "Toplam İşlem": 8
+    },
+    "KAPLM": {
+        "Başarı Oranı %": 83.3,
+        "Beklenen Getiri %": 21.02,
+        "Ort. MFE %": 36.06,
+        "Toplam İşlem": 6
+    },
+    "ENDAE": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -5.83,
+        "Ort. MFE %": 10.74,
+        "Toplam İşlem": 7
+    },
+    "BLUME": {
+        "Başarı Oranı %": 11.1,
+        "Beklenen Getiri %": 10.72,
+        "Ort. MFE %": 9.64,
+        "Toplam İşlem": 9
+    },
+    "BIGTK": {
+        "Başarı Oranı %": 11.1,
+        "Beklenen Getiri %": -0.29,
+        "Ort. MFE %": 17.71,
+        "Toplam İşlem": 9
+    },
+    "ORGE": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 4.1,
+        "Ort. MFE %": 13.12,
+        "Toplam İşlem": 7
+    },
+    "SERNT": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -8.83,
+        "Ort. MFE %": 8.09,
+        "Toplam İşlem": 7
+    },
+    "A1YEN": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": -4.84,
+        "Ort. MFE %": 11.69,
+        "Toplam İşlem": 9
+    },
+    "TARKM": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 3.84,
+        "Ort. MFE %": 25.72,
+        "Toplam İşlem": 5
+    },
+    "ANHYT": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -4.06,
+        "Ort. MFE %": 7.87,
+        "Toplam İşlem": 9
+    },
+    "NATEN": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 0.11,
+        "Ort. MFE %": 16.44,
+        "Toplam İşlem": 7
+    },
+    "ARSAN": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -3.2,
+        "Ort. MFE %": 13.54,
+        "Toplam İşlem": 8
+    },
+    "CRFSA": {
+        "Başarı Oranı %": 37.5,
+        "Beklenen Getiri %": -1.48,
+        "Ort. MFE %": 14.06,
+        "Toplam İşlem": 8
+    },
+    "OTTO": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 8.2,
+        "Ort. MFE %": 26.44,
+        "Toplam İşlem": 5
+    },
+    "KAYSE": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": -1.03,
+        "Ort. MFE %": 10.97,
+        "Toplam İşlem": 6
+    },
+    "GENTS": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 7.18,
+        "Ort. MFE %": 20.25,
+        "Toplam İşlem": 7
+    },
+    "TTRAK": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": -0.47,
+        "Ort. MFE %": 7.62,
+        "Toplam İşlem": 5
+    },
+    "SANFM": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 0.31,
+        "Ort. MFE %": 17.52,
+        "Toplam İşlem": 9
+    },
+    "EGGUB": {
+        "Başarı Oranı %": 60.0,
+        "Beklenen Getiri %": 11.24,
+        "Ort. MFE %": 30.21,
+        "Toplam İşlem": 5
+    },
+    "EGEEN": {
+        "Başarı Oranı %": 0.0,
+        "Beklenen Getiri %": -5.34,
+        "Ort. MFE %": 4.07,
+        "Toplam İşlem": 7
+    },
+    "YYLGD": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -2.31,
+        "Ort. MFE %": 8.01,
+        "Toplam İşlem": 8
+    },
+    "ONRYT": {
+        "Başarı Oranı %": 22.2,
+        "Beklenen Getiri %": -5.26,
+        "Ort. MFE %": 10.81,
+        "Toplam İşlem": 9
+    },
+    "BJKAS": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": -6.58,
+        "Ort. MFE %": 7.68,
+        "Toplam İşlem": 6
+    },
+    "CLEBI": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -0.22,
+        "Ort. MFE %": 15.93,
+        "Toplam İşlem": 7
+    },
+    "DYOBY": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -1.33,
+        "Ort. MFE %": 15.1,
+        "Toplam İşlem": 7
+    },
+    "BLCYT": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": -3.36,
+        "Ort. MFE %": 21.59,
+        "Toplam İşlem": 10
+    },
+    "GLYHO": {
+        "Başarı Oranı %": 45.5,
+        "Beklenen Getiri %": 2.56,
+        "Ort. MFE %": 13.91,
+        "Toplam İşlem": 11
+    },
+    "MARKA": {
+        "Başarı Oranı %": 33.3,
+        "Beklenen Getiri %": 3.64,
+        "Ort. MFE %": 25.93,
+        "Toplam İşlem": 6
+    },
+    "BINBN": {
+        "Başarı Oranı %": 11.1,
+        "Beklenen Getiri %": 0.88,
+        "Ort. MFE %": 14.62,
+        "Toplam İşlem": 9
+    },
+    "SRVGY": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": -4.8,
+        "Ort. MFE %": 8.7,
+        "Toplam İşlem": 7
+    },
+    "HUNER": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 2.26,
+        "Ort. MFE %": 23.49,
+        "Toplam İşlem": 6
+    },
+    "GSDHO": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 3.08,
+        "Ort. MFE %": 17.4,
+        "Toplam İşlem": 7
+    },
+    "CELHA": {
+        "Başarı Oranı %": 75.0,
+        "Beklenen Getiri %": 18.17,
+        "Ort. MFE %": 62.18,
+        "Toplam İşlem": 4
+    },
+    "KOPOL": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": -6.14,
+        "Ort. MFE %": 10.4,
+        "Toplam İşlem": 6
+    },
+    "EGEGY": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 7.32,
+        "Ort. MFE %": 16.0,
+        "Toplam İşlem": 5
+    },
+    "DURKN": {
+        "Başarı Oranı %": 30.0,
+        "Beklenen Getiri %": -5.55,
+        "Ort. MFE %": 11.32,
+        "Toplam İşlem": 10
+    },
+    "ERCB": {
+        "Başarı Oranı %": 16.7,
+        "Beklenen Getiri %": -5.06,
+        "Ort. MFE %": 11.57,
+        "Toplam İşlem": 6
+    },
+    "RUZYE": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 0.7,
+        "Ort. MFE %": 20.95,
+        "Toplam İşlem": 7
+    },
+    "ARENA": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": -0.22,
+        "Ort. MFE %": 18.82,
+        "Toplam İşlem": 7
+    },
+    "ULUSE": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 8.54,
+        "Ort. MFE %": 24.59,
+        "Toplam İşlem": 7
+    },
+    "NTGAZ": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 1.6,
+        "Ort. MFE %": 16.75,
+        "Toplam İşlem": 8
+    },
+    "POLTK": {
+        "Başarı Oranı %": 25.0,
+        "Beklenen Getiri %": -1.11,
+        "Ort. MFE %": 20.87,
+        "Toplam İşlem": 8
+    },
+    "TKNSA": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": -2.7,
+        "Ort. MFE %": 19.19,
+        "Toplam İşlem": 6
+    },
+    "POLHO": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 12.24,
+        "Ort. MFE %": 17.4,
+        "Toplam İşlem": 6
+    },
+    "AYDEM": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 9.15,
+        "Ort. MFE %": 9.91,
+        "Toplam İşlem": 4
+    },
+    "TNZTP": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 2.47,
+        "Ort. MFE %": 17.11,
+        "Toplam İşlem": 7
+    },
+    "KARTN": {
+        "Başarı Oranı %": 28.6,
+        "Beklenen Getiri %": 2.81,
+        "Ort. MFE %": 12.96,
+        "Toplam İşlem": 7
+    },
+    "MOBTL": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 7.8,
+        "Ort. MFE %": 18.4,
+        "Toplam İşlem": 7
+    },
+    "PKART": {
+        "Başarı Oranı %": 42.9,
+        "Beklenen Getiri %": 2.46,
+        "Ort. MFE %": 19.89,
+        "Toplam İşlem": 7
+    },
+    "TMSN": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": -2.33,
+        "Ort. MFE %": 14.4,
+        "Toplam İşlem": 5
+    },
+    "LRSHO": {
+        "Başarı Oranı %": 14.3,
+        "Beklenen Getiri %": 9.21,
+        "Ort. MFE %": 10.44,
+        "Toplam İşlem": 7
+    },
+    "ALKA": {
+        "Başarı Oranı %": 57.1,
+        "Beklenen Getiri %": 7.93,
+        "Ort. MFE %": 23.37,
+        "Toplam İşlem": 7
+    },
+    "YAPRK": {
+        "Başarı Oranı %": 40.0,
+        "Beklenen Getiri %": 10.37,
+        "Ort. MFE %": 24.86,
+        "Toplam İşlem": 5
+    },
+    "XU100": {
+        "Başarı Oranı %": 50.0,
+        "Beklenen Getiri %": 2.58,
+        "Ort. MFE %": 8.28,
+        "Toplam İşlem": 8
+    },
+    "XU030": {
+        "Başarı Oranı %": 44.4,
+        "Beklenen Getiri %": 2.12,
+        "Ort. MFE %": 7.32,
+        "Toplam İşlem": 9
+    }
+}
