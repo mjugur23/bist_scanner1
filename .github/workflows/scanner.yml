@@ -17,29 +17,31 @@ jobs:
           python-version: "3.11"
 
       - name: Kütüphaneleri kur
-        # Kütüphaneleri tek tek yazmak yerine, güncellediğin txt dosyasından okutuyoruz
         run: |
           pip install -r requirements.txt
 
       - name: Ana Tarayıcıyı Çalıştır (Scanner)
-        # Eğer ana kodunda Telegram token'ı gizli değilse bu env bloğu zarar vermez, gizliyse çalışmasını sağlar
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         run: |
           python scanner.py
 
       - name: Düşen Kırılım Taramasını Çalıştır
-        # Yeni eklediğin kodun Telegram mesajı atabilmesi için bu şifreyi veriyoruz
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         run: |
           python dusen_kirilimi.py
 
+      - name: Yükselen Kırılım (Short) Taramasını Çalıştır
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          python yukselen_kirilimi.py
+
       - name: Hafızayı Kaydet (Commit)
-        # Sadece hafiza.json'u değil, değişen tüm json dosyalarını kaydetmesi için 'git add .' yaptık
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Hafiza guncellendi" || echo "Degisiklik yok"
+          git commit -m "Hafizalar guncellendi" || echo "Degisiklik yok"
           git push
