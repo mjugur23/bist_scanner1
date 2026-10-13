@@ -1,4 +1,4 @@
-name: BIST Scanner
+name: Martin Luk Signal Bot
 
 on:
   workflow_dispatch:
@@ -20,28 +20,17 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Ana Tarayıcıyı Çalıştır (Scanner)
+      - name: Martin AVWAP Taramasını Çalıştır
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          python scanner.py
-
-      - name: Düşen Kırılım Taramasını Çalıştır
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        run: |
-          python dusen_kirilimi.py
-
-      - name: Yükselen Kırılım (Short) Taramasını Çalıştır
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        run: |
-          python yukselen_kirilimi.py
+          python martin_bot.py
 
       - name: Hafızayı Kaydet (Commit)
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Hafizalar guncellendi" || echo "Degisiklik yok"
+          git commit -m "Sinyal hafızası güncellendi" || echo "Degisiklik yok"
           git push
