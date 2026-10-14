@@ -9,6 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # --- TELEGRAM VE HAFIZA AYARLARI ---
+# GÜVENLİK UYARISI: Bu bilgileri public GitHub depolarına yüklerken gizlemeyi unutma!
 TOKEN = "8839652305:AAE7x_DriVyFis-ceROoxJGuwdX9EwhFYCc"
 CHAT_ID = "5886003690"
 MEMORY_FILE = "dusen_hafiza.json"
@@ -39,7 +40,7 @@ def send_telegram_message(message):
         print(f"Telegram hatasi: {e}")
 
 # --- ANALİZ MOTORU (1 YILLIK DENGELİ AYAR) ---
-def find_downtrend_status(df, window=7, min_distance=15): # Değerleri 1 yıla göre optimize ettik
+def find_downtrend_status(df, window=7, min_distance=15):
     if df is None or len(df) < 40:
         return None, {}
         
@@ -137,7 +138,6 @@ def main():
     
     for ticker in TICKERS:
         try:
-            # Burayı 1y (1 yıl) olarak güncelledik
             df = yf.download(f"{ticker}.IS", period="1y", progress=False)
             if df is None or df.empty: continue
             
@@ -148,10 +148,16 @@ def main():
                     kiranlar.append(f"✅ *{ticker}* (Fiyat: {details['Fiyat']} / Direnç: {details['Direnç']})")
                     memory[ticker] = "KIRDI"
             elif status == "YAKIN":
-                if ticker not in memory:
+                if memory.get(ticker) != "YAKIN":
                     yaklasanlar.append(f"⏳ *{ticker}* (Fiyat: {details['Fiyat']} / Direnç: {details['Direnç']})")
                     memory[ticker] = "YAKIN"
-        except:
+            else:
+                # --- HAFIZA TEMİZLİĞİ ---
+                # Eğer hisse kırılım veya yaklaşma durumunda değilse hafızadan tamamen sil
+                if ticker in memory:
+                    del memory[ticker]
+                    
+        except Exception:
             continue
 
     if kiranlar or yaklasanlar:
@@ -163,9 +169,10 @@ def main():
         
         send_telegram_message(rapor)
         save_memory(memory)
-        print("Sinyaller gönderildi.")
+        print("Sinyaller gönderildi ve hafıza güncellendi.")
     else:
-        print("Yeni sinyal bulunamadı.")
+        save_memory(memory) # Sinyal olmasa da temizlenen (silinen) hisseler için JSON'u güncelle
+        print("Yeni sinyal bulunamadı. (Hafıza güncellendi)")
 
 if __name__ == "__main__":
     main()
