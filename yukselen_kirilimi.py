@@ -9,10 +9,12 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # --- TELEGRAM VE HAFIZA AYARLARI ---
-# GITHUB'A YÜKLERKEN BURAYI BOŞ BIRAK VE GITHUB SECRETS KULLAN!
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8839652305:AAE7x_DriVyFis-ceROoxJGuwdX9EwhFYCc")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "5886003690")
-MEMORY_FILE = "yukselen_hafiza.json" # Hafıza dosyası çakışmasın diye adını değiştirdik
+# GÜVENLİK UYARISI: Bu bilgileri public GitHub depolarına yüklerken gizlemeyi unutma!
+TOKEN = "8839652305:AAE7x_DriVyFis-ceROoxJGuwdX9EwhFYCc"
+CHAT_ID = "5886003690"
+
+# DİKKAT: Diğer tarama ile çakışmaması için dosya adını "yukselen_hafiza.json" yaptık!
+MEMORY_FILE = "yukselen_hafiza.json" 
 
 def load_memory():
     if os.path.exists(MEMORY_FILE):
@@ -110,8 +112,7 @@ def main():
         "THYAO","ASELS","ISCTR","AKBNK","YKBNK","KCHOL","TUPRS","TRALT","SASA","ASTOR", 
         "GARAN","PGSUS","EREGL","BIMAS","SAHOL","EKGYO","TCELL","SISE","HALKB", "MGROS",
         "FROTO","KRDMD","VAKBN","TTKOM","PETKM","GUBRF","TOASO","AEFES","BRSAN","ENKAI",
-        "TAVHL","KONTR","ULKER","OYAKC","AKSEN","DOAS",
-              
+        "TAVHL","KONTR","ULKER","OYAKC","AKSEN","DOAS"
     ]
     
     memory = load_memory()
@@ -132,10 +133,16 @@ def main():
                     kiranlar.append(f"🔻 *{ticker}* (Fiyat: {details['Fiyat']} / Destek: {details['Destek']})")
                     memory[ticker] = "KIRDI"
             elif status == "YAKIN":
-                if ticker not in memory:
+                if memory.get(ticker) != "YAKIN":
                     yaklasanlar.append(f"⚠️ *{ticker}* (Fiyat: {details['Fiyat']} / Destek: {details['Destek']})")
                     memory[ticker] = "YAKIN"
-        except:
+            else:
+                # --- HAFIZA TEMİZLİĞİ ---
+                # Hissenin tehlikesi geçtiyse (destekten yukarı sekti veya şartları bozduysa) sil
+                if ticker in memory:
+                    del memory[ticker]
+                    
+        except Exception:
             continue
 
     if kiranlar or yaklasanlar:
@@ -147,9 +154,10 @@ def main():
         
         send_telegram_message(rapor)
         save_memory(memory)
-        print("Sinyaller gönderildi.")
+        print("Sinyaller gönderildi ve hafıza güncellendi.")
     else:
-        print("Yeni sinyal bulunamadı.")
+        save_memory(memory) # Sinyal olmasa da temizlenen hisseleri diske yazdırıyoruz
+        print("Yeni sinyal bulunamadı. (Hafıza güncellendi)")
 
 if __name__ == "__main__":
     main()
